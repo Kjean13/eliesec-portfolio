@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Jean-Elie Koumou — Portfolio Cybersécurité</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b1220;--bg2:#0f172a;--bg3:#111c33;
+  --accent:#3b82f6;--accent2:#818cf8;
+  --text:#c9d1d9;--muted:#556070;--border:#1e2d3a;
+  --mono:'JetBrains Mono',monospace;--sans:'Inter',sans-serif;
+  --green:#22c55e;
+}
+[data-theme="light"]{--bg:#f5f7fa;--bg2:#ffffff;--bg3:#ebeef2;--accent:#2563eb;--accent2:#6366f1;--text:#1c232d;--muted:#6b7a8d;--border:#d1dbe6}
+[data-contrast="high"]{--bg:#000;--bg2:#0a0f14;--bg3:#0f1820;--text:#fff;--muted:#aac0d0}
+[data-font="dyslexia"] *{font-family:'Comic Sans MS',sans-serif!important}
+[data-motion="reduced"] *{animation:none!important;transition:none!important}
+[data-lang="en"] .fr{display:none!important}
+[data-lang="fr"] .en{display:none!important}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background:radial-gradient(1200px circle at 20% -10%, rgba(37,99,235,.10), transparent 55%),radial-gradient(900px circle at 80% 0%, rgba(99,102,241,.08), transparent 50%),var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.7;overflow-x:hidden;transition:background .3s,color .3s}
+
+/* ── NAV ── */
+nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:100;display:flex;align-items:center;padding:.9rem 1.5rem;background:rgba(11,18,32,.92);backdrop-filter:blur(24px);border:1.5px solid var(--border);border-radius:50px;width:calc(100% - 2.5rem);max-width:1200px;gap:.4rem}
+[data-theme="light"] nav{background:rgba(245,247,250,.95);box-shadow:0 2px 16px rgba(0,0,0,.08)}
+.nav-left{display:flex;align-items:center;gap:.55rem;flex-shrink:0;margin-right:.5rem}
+.nav-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.74rem;font-weight:700;color:#0d1117;flex-shrink:0}
+.nav-name{font-family:var(--mono);font-size:.84rem;color:var(--text);font-weight:500;white-space:nowrap}
+.nav-links{display:flex;gap:.02rem;list-style:none;flex:1;justify-content:center;flex-wrap:nowrap}
+.nav-links a{font-family:var(--mono);font-size:.68rem;color:var(--muted);text-decoration:none;padding:.36rem .62rem;border-radius:20px;transition:all .2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{background:rgba(59,130,246,.1);color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:.3rem;margin-left:.5rem;flex-shrink:0}
+.nav-icon{display:flex;align-items:center;justify-content:center;width:33px;height:33px;border-radius:50%;background:transparent;border:none;cursor:pointer;color:var(--muted);transition:all .2s;text-decoration:none}
+.nav-icon:hover{background:rgba(59,130,246,.1);color:var(--accent)}
+.lang-switch{display:flex;align-items:center;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:20px;padding:.18rem .28rem;margin-left:.2rem}
+.lang-btn{font-family:var(--mono);font-size:.64rem;color:var(--muted);background:transparent;border:none;cursor:pointer;padding:.2rem .45rem;border-radius:14px;transition:all .18s}
+.lang-btn.active{background:var(--accent);color:#0d1117;font-weight:700}
+
+/* ── A11Y ── */
+.a11y-panel{position:fixed;bottom:1.5rem;right:1.5rem;z-index:200;display:flex;flex-direction:column;align-items:flex-end;gap:.45rem}
+.a11y-trigger{width:42px;height:42px;border-radius:50%;background:var(--accent2);color:#0d1117;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(129,140,248,.35);transition:transform .2s}
+.a11y-trigger:hover{transform:scale(1.08)}
+.a11y-menu{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:.75rem;display:none;flex-direction:column;gap:.38rem;min-width:175px}
+.a11y-menu.open{display:flex}
+.a11y-btn{font-family:var(--mono);font-size:.68rem;color:var(--text);background:transparent;border:1px solid var(--border);border-radius:5px;padding:.32rem .6rem;cursor:pointer;text-align:left;transition:all .2s}
+.a11y-btn:hover{border-color:var(--accent2);color:var(--accent2)}
+.a11y-btn.active{border-color:var(--accent);color:var(--accent)}
+
+/* ── SECTIONS ── */
+section{max-width:1180px;margin:0 auto;padding:5rem 2.5rem}
+.section-label{font-family:var(--mono);font-size:.66rem;color:var(--accent);letter-spacing:.2em;text-transform:uppercase;margin-bottom:2rem;display:flex;align-items:center;gap:1rem}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+h2{font-size:1.6rem;font-weight:800;color:#e6edf3;margin-bottom:.4rem;letter-spacing:-.02em}
+[data-theme="light"] h2{color:#0f1315}
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:7rem 2rem 4rem;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.72rem;color:var(--text);background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:50px;padding:.38rem 1rem;margin-bottom:2rem}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 6px var(--green);animation:glow-green 2s ease-in-out infinite}
+@keyframes glow{0%,100%{opacity:1;box-shadow:0 0 6px var(--accent)}50%{opacity:.4;box-shadow:none}}
+@keyframes glow-green{0%,100%{opacity:1;box-shadow:0 0 6px var(--green)}50%{opacity:.4;box-shadow:none}}
+.hero-title{font-size:clamp(1.75rem,4vw,3.1rem);font-weight:800;line-height:1.12;letter-spacing:-.025em;color:#e6edf3;margin-bottom:1.2rem;max-width:780px}
+[data-theme="light"] .hero-title{color:#0f1315}
+.hero-title em{font-style:normal;color:var(--accent)}
+.hero-sub{font-size:.95rem;color:var(--muted);max-width:520px;margin:0 auto 2.2rem;line-height:1.75}
+.hero-sub strong{color:var(--text);font-weight:600}
+.hero-ctas{display:flex;gap:.85rem;flex-wrap:wrap;justify-content:center;margin-bottom:3.5rem}
+.btn{font-family:var(--sans);font-size:.82rem;font-weight:600;padding:.65rem 1.5rem;border-radius:50px;text-decoration:none;transition:all .2s;cursor:pointer;border:none;display:inline-flex;align-items:center;gap:.45rem}
+.btn-primary{background:var(--accent);color:#0d1117;font-weight:700;box-shadow:0 2px 10px rgba(59,130,246,.14)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(59,130,246,.18);background:#1affa0}
+.btn-ghost{background:rgba(255,255,255,.05);color:var(--text);border:1px solid var(--border)}
+.btn-ghost:hover{border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.09)}
+.scroll-hint{font-family:var(--mono);font-size:.6rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:2px;animation:bob 2.5s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+/* ── ABOUT ── */
+.about-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:3rem;align-items:stretch;overflow:visible;margin-top:.5rem}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:1.7rem 1.9rem}
+.card-label{font-family:var(--mono);font-size:.64rem;color:var(--accent2);text-transform:uppercase;letter-spacing:.14em;margin-bottom:1.1rem}
+.about-card-left{border-radius:16px 0 0 16px;position:relative}
+.about-card-left::after{display:none}
+.about-intro{font-size:.9rem;color:var(--text);line-height:1.75;margin-bottom:1.1rem}
+.about-intro strong{color:#e6edf3;font-weight:700}
+[data-theme="light"] .about-intro strong{color:#0f1315}
+.about-more{overflow:hidden;max-height:0;transition:max-height .5s cubic-bezier(.4,0,.2,1),opacity .4s;opacity:0}
+.about-more.open{max-height:800px;opacity:1}
+.about-more-inner{padding-top:.2rem;display:flex;flex-direction:column;gap:.85rem}
+.about-text-p{font-size:.87rem;color:var(--text);line-height:1.75}
+.about-text-p strong{color:#e6edf3;font-weight:600}
+.aspiration{background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.14);border-radius:8px;padding:.9rem 1.1rem}
+.aspiration p{font-size:.82rem;color:var(--text);line-height:1.65}
+.aspiration strong{color:var(--accent)}
+.about-bullets{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.about-bullets li{display:flex;align-items:flex-start;gap:.55rem;font-size:.84rem;color:var(--text)}
+.about-bullets li::before{content:'→';color:var(--accent);font-family:var(--mono);font-size:.7rem;flex-shrink:0;margin-top:.18rem}
+.btn-toggle{display:inline-flex;align-items:center;gap:.45rem;margin-top:1.1rem;font-family:var(--mono);font-size:.72rem;color:var(--accent);background:rgba(59,130,246,.07);border:1px solid rgba(59,130,246,.2);border-radius:6px;padding:.38rem .85rem;cursor:pointer;transition:all .2s;user-select:none}
+.btn-toggle:hover{background:rgba(59,130,246,.14);border-color:var(--accent)}
+.btn-toggle svg{transition:transform .35s}
+.btn-toggle.open svg{transform:rotate(180deg)}
+
+/* ── DIAGRAMME PROFIL ── */
+.about-diagram{position:relative;display:flex;flex-direction:column;justify-content:center;padding:2rem 0 2rem 0;overflow:visible}
+.about-diagram::before{content:'';position:absolute;left:0;top:3.5rem;bottom:3.5rem;width:1px;background:linear-gradient(to bottom,var(--accent),var(--accent2),rgba(129,140,248,.3));z-index:1}
+.diag-bridge{position:absolute;left:-1px;top:50%;width:1.6rem;height:1px;border-top:1px solid var(--accent);transform:translateY(-50%);z-index:2}
+.diag-bridge::before{content:'';position:absolute;right:-3px;top:-3px;width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 6px var(--accent)}
+.diag-row{display:flex;align-items:flex-start;position:relative;padding:1rem 0 1rem 2.4rem}
+.diag-row::before{content:'';position:absolute;left:0;top:2rem;width:2.2rem;height:1px;border-top:1px dashed var(--accent2);opacity:.7}
+.diag-row::after{content:'';position:absolute;left:-4px;top:calc(2rem - 4px);width:8px;height:8px;border-radius:50%;background:var(--bg);border:1.5px solid var(--accent2);z-index:2}
+.diag-content{flex:1}
+.diag-num{font-family:var(--mono);font-size:2.1rem;font-weight:700;color:var(--accent2);line-height:1;display:block;margin-bottom:.22rem}
+.diag-lbl{font-size:.82rem;font-weight:600;color:var(--text);line-height:1.35;margin-bottom:.45rem;display:block}
+.diag-tags{display:flex;flex-wrap:wrap;gap:.22rem}
+.diag-tag{font-family:var(--mono);font-size:.58rem;color:var(--muted);background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:3px;padding:.07rem .32rem;transition:border-color .2s,color .2s}
+.diag-tag:hover{border-color:var(--accent2);color:var(--accent2)}
+.diag-tag.g{color:var(--accent)!important;background:rgba(59,130,246,.06)!important;border-color:rgba(59,130,246,.22)!important}
+.diag-sub{margin-top:.7rem;padding-top:.7rem;border-top:1px solid rgba(59,130,246,.14);display:flex;align-items:flex-start;gap:.8rem}
+.diag-sub-line{width:16px;height:1px;border-top:1px dashed var(--accent);margin-top:.65rem;flex-shrink:0}
+.diag-sub-num{font-family:var(--mono);font-size:1.2rem;font-weight:700;color:var(--accent);line-height:1;margin-bottom:.15rem;display:block}
+.diag-sub-lbl{font-size:.74rem;color:var(--text);font-weight:500;margin-bottom:.35rem;display:block}
+
+/* ── SCROLL ROW (projets, certs, xp, upskills) ── */
+.scroll-row{
+  display:flex;
+  gap:1.2rem;
+  overflow-x:auto;
+  padding: .2rem .2rem 1rem;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scroll-behavior:smooth;
+  scrollbar-gutter:stable;
+  scrollbar-width:none;
+  scrollbar-color:transparent transparent;}
+.scroll-row:hover{scrollbar-color:rgba(129,140,248,.55) transparent}
+.scroll-row:active{cursor:grabbing}
+.scroll-row{cursor:grab;overscroll-behavior-x:contain}
+.scroll-row::-webkit-scrollbar{height:0px;display:none}
+.scroll-row::-webkit-scrollbar-track{background:transparent}
+.scroll-row::-webkit-scrollbar-thumb{
+  background:linear-gradient(90deg,rgba(59,130,246,.45),rgba(129,140,248,.45));
+  border-radius:999px;
+}
+
+/* ── PROJETS ── */
+.proj-card{flex:0 0 300px;scroll-snap-align:start;background:var(--bg2);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color .25s,transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+.proj-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:none}
+.proj-img-zone{width:100%;height:150px;object-fit:cover;background:var(--bg3);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:1.1rem;font-weight:700;letter-spacing:.08em;position:relative;overflow:hidden}
+.proj-img-zone::before{content:'';position:absolute;inset:0;background:var(--proj-grad,linear-gradient(135deg,rgba(59,130,246,.08),rgba(129,140,248,.05)))}
+.proj-img-zone span{position:relative;z-index:1;opacity:.7}
+.proj-img-zone img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+.proj-body{padding:1.1rem 1.3rem;display:flex;flex-direction:column;gap:.55rem;flex:1}
+.proj-body{order:1}
+.proj-img-zone{order:2}
+
+.proj-head2{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem}
+.proj-title2{font-family:var(--mono);font-size:.88rem;color:#e6edf3;font-weight:700;line-height:1.3}
+[data-theme="light"] .proj-title2{color:#0f1315}
+.proj-status{font-family:var(--mono);font-size:.6rem;padding:.14rem .48rem;border-radius:20px;white-space:nowrap;flex-shrink:0}
+.s-act{color:var(--green);border:1px solid var(--green)}
+.s-done{color:var(--muted);border:1px solid var(--muted)}
+.proj-desc2{font-size:.81rem;color:var(--muted);line-height:1.65;flex:1}
+.proj-tags2{display:flex;flex-wrap:wrap;gap:.25rem}
+.proj-tag2{font-family:var(--mono);font-size:.6rem;color:var(--accent2);background:rgba(129,140,248,.06);border:1px solid rgba(129,140,248,.18);border-radius:3px;padding:.08rem .38rem}
+
+/* ── XP CARDS ── */
+.xp-scroll-card{flex:0 0 290px;scroll-snap-align:start;background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.4rem;display:flex;flex-direction:column;gap:.9rem;transition:border-color .25s,transform .25s,box-shadow .25s;position:relative;overflow:hidden}
+.xp-scroll-card::before{content:'';position:absolute;inset:0;background:var(--xp-glow,transparent);opacity:0;transition:opacity .3s;pointer-events:none}
+.xp-scroll-card:hover{border-color:var(--xp-color,var(--accent));transform:translateY(-3px);box-shadow:none}
+.xp-scroll-card:hover::before{opacity:1}
+.xp-header{display:flex;align-items:flex-start;gap:.85rem}
+.xp-logo{width:40px;height:40px;border-radius:9px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+/* Optional company logo inside experience cards */
+.xp-logo img.xp-logo-img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:6px;
+  display:none; /* shown only if it loads */
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));
+}
+.xp-logo.has-img img.xp-logo-img{display:block}
+.xp-logo.has-img .logo-txt{display:none}
+
+.logo-txt{font-family:var(--mono);font-size:.82rem;font-weight:800;letter-spacing:.06em;color:var(--text)}
+.xp-g .xp-logo{background:rgba(59,130,246,.06);border-color:rgba(59,130,246,.22)}
+.xp-b .xp-logo{background:rgba(129,140,248,.06);border-color:rgba(129,140,248,.22)}
+.xp-p .xp-logo{background:rgba(168,85,247,.06);border-color:rgba(168,85,247,.22)}
+
+.xp-meta{flex:1}
+.xp-title{font-family:var(--mono);font-size:.86rem;color:#e6edf3;font-weight:700;line-height:1.3;margin-bottom:.15rem}
+[data-theme="light"] .xp-title{color:#0f1315}
+.xp-company{font-size:.76rem;color:var(--xp-color,var(--accent2));font-weight:600;margin-bottom:.1rem}
+.xp-period{font-family:var(--mono);font-size:.64rem;color:var(--muted)}
+.xp-divider{height:1px;background:var(--border)}
+.xp-desc{font-size:.8rem;color:var(--muted);line-height:1.65;flex:1}
+.xp-tags{display:flex;flex-wrap:wrap;gap:.28rem}
+.xp-tag{font-family:var(--mono);font-size:.58rem;border-radius:3px;padding:.1rem .35rem;border:1px solid;color:var(--xp-color,var(--accent2))}
+.xp-g{--xp-color:#3b82f6;--xp-glow:radial-gradient(ellipse at top left,rgba(59,130,246,.06),transparent 60%)}
+.xp-g .xp-tag{background:rgba(59,130,246,.06);border-color:rgba(59,130,246,.22)}
+.xp-b{--xp-color:#00c8ff;--xp-glow:radial-gradient(ellipse at top left,rgba(129,140,248,.06),transparent 60%)}
+.xp-b .xp-tag{background:rgba(129,140,248,.06);border-color:rgba(129,140,248,.22)}
+.xp-p{--xp-color:#a855f7;--xp-glow:radial-gradient(ellipse at top left,rgba(168,85,247,.06),transparent 60%)}
+.xp-p .xp-tag{background:rgba(168,85,247,.06);border-color:rgba(168,85,247,.22)}
+
+/* ── CERTIFICATIONS ── */
+.cert-card{flex:0 0 360px;scroll-snap-align:start;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
+.cert-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.cert-img-zone{width:100%;height:110px;background:var(--bg3);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--border);padding:.5rem;font-size:2.2rem}
+.cert-img-zone img{max-height:70px;max-width:85%;object-fit:contain}
+.cert-body2{padding:.85rem 1rem;flex:1;display:flex;flex-direction:column;gap:.3rem}
+.cert-title{font-family:var(--mono);font-size:.8rem;color:#e6edf3;font-weight:600;line-height:1.35}
+[data-theme="light"] .cert-title{color:#0f1315}
+.cert-org{font-size:.68rem;color:var(--muted)}
+.cbadge{font-family:var(--mono);font-size:.57rem;padding:.1rem .36rem;border-radius:2px;margin-left:.35rem}
+.cb-ok{background:rgba(59,130,246,.09);color:var(--accent)}
+.cb-wip{background:rgba(245,166,35,.09);color:#f5a623}
+
+/* ── UPSKILLS ── */
+.up-card2{flex:0 0 260px;scroll-snap-align:start;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,transform .2s;text-decoration:none;color:inherit}
+.up-card2:hover{border-color:var(--accent);transform:translateY(-3px)}
+.up-card2.rec{border-color:rgba(59,130,246,.18)}
+.up-banner-zone{width:100%;height:110px;background:var(--bg3);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.up-banner-zone::before{content:'';position:absolute;inset:0;background:var(--up-grad,linear-gradient(135deg,rgba(59,130,246,.08),rgba(129,140,248,.06)))}
+.up-banner-zone img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.up-banner-label{position:relative;z-index:1;font-family:var(--mono);font-size:.78rem;font-weight:700;color:var(--accent);text-shadow:0 0 12px rgba(0,0,0,.8)}
+.up-inner2{padding:1rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.up-head2{display:flex;align-items:center;gap:.6rem;justify-content:center;text-align:center}
+.up-head2 > div{width:100%}
+.up-name2,.up-type2{width:100%;text-align:center}
+.up-ico2{width:30px;height:30px;border-radius:6px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.up-name2{font-family:var(--mono);font-size:.82rem;color:#e6edf3;font-weight:600}
+[data-theme="light"] .up-name2{color:#0f1315}
+.up-type2{font-size:.62rem;color:var(--accent2);text-transform:uppercase;letter-spacing:.1em}
+.up-desc2{font-size:.76rem;color:var(--muted);flex:1}
+.up-foot2{display:flex;justify-content:space-between;align-items:center}
+.up-badge{font-family:var(--mono);font-size:.59rem;padding:.17rem .46rem;border-radius:20px}
+.ub-free{color:var(--accent);border:1px solid var(--accent)}
+.ub-oss{color:var(--accent2);border:1px solid var(--accent2)}
+.up-link2{font-family:var(--mono);font-size:.64rem;color:var(--accent)}
+
+/* ── TIMELINE ── */
+.timeline{display:flex;flex-direction:column;position:relative}
+.timeline::before{content:'';position:absolute;left:9px;top:8px;bottom:8px;width:1px;background:var(--border)}
+.tl-item{display:flex;gap:1.4rem;padding-bottom:2rem;position:relative}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{width:19px;height:19px;border-radius:50%;border:2px solid var(--accent);background:var(--bg);flex-shrink:0;margin-top:4px;display:flex;align-items:center;justify-content:center;z-index:1}
+.tl-dot::after{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.tl-dot.dim{border-color:var(--muted)}.tl-dot.dim::after{background:var(--muted)}
+.tl-date{font-family:var(--mono);font-size:.66rem;color:var(--muted);margin-bottom:.2rem}
+.tl-title{font-family:var(--mono);font-size:.9rem;color:#e6edf3;font-weight:600;margin-bottom:.16rem}
+[data-theme="light"] .tl-title{color:#0f1315}
+.tl-org{font-size:.78rem;color:var(--accent2);margin-bottom:.32rem}
+.tl-desc{font-size:.8rem;color:var(--muted)}
+
+/* ── SKILLS ── */
+.skills-section{display:flex;flex-direction:column;gap:2.5rem}
+.skill-group-title{font-family:var(--mono);font-size:.68rem;color:var(--accent);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:.9rem}
+.skill-cat h3{font-family:var(--mono);font-size:.67rem;color:var(--accent2);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.6rem}
+.stag{display:inline-block;font-family:var(--mono);font-size:.7rem;color:var(--text);background:var(--bg3);border:1px solid var(--border);border-radius:3px;padding:.17rem .48rem;margin:.16rem .16rem .16rem 0;transition:border-color .2s,color .2s}
+.stag:hover{border-color:var(--accent);color:var(--accent)}
+.stag.support{border-color:rgba(129,140,248,.2);color:var(--accent2)}
+
+
+.hi{color:var(--text);font-weight:inherit}
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;margin-top:1.8rem}
+.contact-panel{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.3rem;display:flex;flex-direction:column;gap:1rem;position:relative;overflow:hidden}
+.contact-panel::before{content:'';position:absolute;inset:-20%;background:radial-gradient(circle at 20% 10%,rgba(59,130,246,.10),transparent 45%),radial-gradient(circle at 80% 0%,rgba(129,140,248,.08),transparent 45%);pointer-events:none}
+.contact-panel>*{position:relative;z-index:1}
+
+.contact-panel-head{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.contact-title{font-family:var(--mono);font-size:.78rem;color:var(--text);display:flex;align-items:center;gap:.5rem}
+.contact-mini{font-size:.75rem;color:var(--muted)}
+.contact-ping{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px rgba(34,197,94,.5);animation:glow-green 2s ease-in-out infinite}
+
+.contact-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
+.cbtn{display:flex;align-items:center;justify-content:center;gap:.55rem;font-family:var(--mono);font-size:.74rem;color:var(--text);text-decoration:none;padding:.7rem .8rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;transition:transform .18s,border-color .18s,color .18s,background .18s}
+.cbtn:hover{border-color:rgba(59,130,246,.35);transform:translateY(-2px)}
+.cbtn.primary{background:rgba(59,130,246,.06);border-color:rgba(59,130,246,.22)}
+.cbtn.primary:hover{border-color:rgba(59,130,246,.45)}
+.cico{width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:var(--bg3);border:1px solid var(--border);font-size:.8rem;color:var(--accent)}
+
+.contact-copy{display:flex;flex-direction:column;gap:.5rem}
+.copyline{width:100%;text-align:left;display:flex;align-items:center;gap:.65rem;font-family:var(--mono);font-size:.76rem;color:var(--text);background:rgba(255,255,255,.02);border:1px dashed rgba(129,140,248,.25);border-radius:10px;padding:.75rem .85rem;cursor:pointer;transition:border-color .2s,transform .2s}
+.copyline:hover{border-color:rgba(129,140,248,.55);transform:translateY(-1px)}
+.copy-ico{width:22px;text-align:center}
+.copy-tip{margin-left:auto;font-size:.64rem;color:var(--muted)}
+
+.contact-note{font-size:.78rem;color:var(--muted);padding:.8rem .9rem;background:rgba(0,0,0,.12);border:1px solid rgba(255,255,255,.06);border-radius:12px}
+
+.avail-card{background:rgba(59,130,246,04);border:1px solid rgba(59,130,246,16);border-radius:14px;padding:1.3rem}
+.avail-card.modern{background:rgba(59,130,246,.035);border-color:rgba(59,130,246,.14)}
+.avail-card h3{font-family:var(--mono);font-size:.78rem;color:var(--accent);margin-bottom:.9rem;display:flex;align-items:center;gap:.45rem}
+.avail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
+.avail-item{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:.75rem .8rem}
+.avail-k{font-family:var(--mono);font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.35rem}
+.avail-v{font-size:.82rem;color:var(--text)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block;animation:glow 2s ease-in-out infinite}
+
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:rgba(13,17,23,.92);border:1px solid var(--border);padding:.55rem .8rem;border-radius:999px;font-family:var(--mono);font-size:.72rem;color:var(--text);opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:999}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(-6px)}
+
+footer{border-top:1px solid var(--border);padding:1.8rem 2.5rem;font-family:var(--mono);font-size:.68rem;color:var(--muted);display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto}
+
+@media(max-width:900px){
+  nav{width:calc(100% - 1.2rem);padding:.5rem .8rem}
+  .nav-links a{font-size:.6rem;padding:.25rem .38rem}
+  .nav-name{display:none}
+  section{padding:4rem 1.2rem}
+  .about-layout{grid-template-columns:1fr;gap:1.1rem}
+  .contact-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:.4rem;text-align:center}
+}
+@media(max-width:580px){.nav-links{display:none}}
+
+/* ── CAROUSEL NAV (no visible scrollbar) ── */
+.scroll-wrap{position:relative}
+.scroll-btn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:42px;height:42px;border-radius:12px;border:1px solid var(--border);
+  background:rgba(17,24,32,.85);color:var(--text);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;user-select:none;
+  transition:transform .15s, border-color .15s, background .15s;
+}
+.scroll-btn:hover{border-color:rgba(129,140,248,.55);transform:translateY(-50%) scale(1.03)}
+.scroll-btn.left{left:-10px}
+.scroll-btn.right{right:-10px}
+.scroll-btn svg{width:18px;height:18px;opacity:.85}
+.scroll-wrap:hover .scroll-btn{opacity:1}
+@media (max-width:760px){
+  .scroll-btn{display:none}
+}
+
+
+/* ── SKILLS (compact 4 groups) ── */
+.skills-compact{margin-top:1.1rem}
+.skills-row4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.skill-pill{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1rem 1rem .95rem}
+.skill-pill .k{font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);margin-bottom:.35rem}
+.skill-pill .v{color:var(--text);opacity:.9;font-size:.92rem;line-height:1.55}
+.softbar{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.55rem;align-items:center}
+.softlogo{font-family:var(--mono);font-size:.8rem;border:1px solid var(--border);background:rgba(17,24,32,.65);padding:.35rem .55rem;border-radius:10px;color:var(--text);opacity:.9}
+@media (max-width:1100px){.skills-row4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.skills-row4{grid-template-columns:1fr}}
+
+
+/* Skills tagline */
+.skills-tagline{
+  margin: 10px 0 14px;
+  color: rgba(190,210,220,.85);
+  font-size: 13px;
+  letter-spacing: .2px;
+}
+
+/* ===== Skills (ATS / Pro) ===== */
+.skills-tagline2{
+  margin: 10px 0 18px;
+  color: rgba(230,245,255,.78);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  letter-spacing: .2px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.skills-panel{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 18px 60px rgba(0,0,0,.35);
+}
+
+.skills-grid{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.skills-group{
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(10,14,20,.35);
+  border-radius: 18px;
+  padding: 16px 16px 14px;
+}
+
+.skills-group-title{
+  font-family: JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  color: rgba(86, 250, 180, .95);
+  letter-spacing: 2.2px;
+  font-size: 13px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.skills-chips{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skills-chips .chip{
+  display:inline-flex;
+  align-items:center;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  color: rgba(230,245,255,.88);
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-family: JetBrains Mono, ui-monospace, monospace;
+  font-size: 13px;
+  letter-spacing: .4px;
+  white-space: nowrap;
+}
+
+.logo-marquee{
+  margin-top: 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.03);
+  overflow: hidden;
+  padding: 12px 0;
+}
+
+.marquee-track{
+  display:flex;
+  gap: 34px;
+  align-items:center;
+  width: max-content;
+  animation: marquee 18s linear infinite;
+  padding-left: 22px;
+}
+
+.logo-marquee:hover .marquee-track{
+  animation-play-state: paused;
+}
+
+.brand{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding: 14px 22px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.06);
+        background: rgba(255,255,255,0.02);
+    }
+
+@keyframes marquee{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
+
+@media (max-width: 1100px){
+  .skills-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 620px){
+  .skills-grid{ grid-template-columns: 1fr; }
+}
+
+
+/* ── WHOAMI ── */
+.whoami-label{margin-bottom:1.1rem}
+.whoami-ascii{font-family:'JetBrains Mono',monospace;font-size:.44rem;line-height:1.25;color:var(--accent);white-space:pre;overflow-x:auto;background:transparent;border:none;padding:0;margin:0 0 .5rem 0;display:block;text-shadow:0 0 8px rgba(59,130,246,.5)}
+
+/* ── A11Y FIXED ── */
+.a11y-fixed{position:fixed;top:1.2rem;left:1.2rem;z-index:9999;display:flex;flex-direction:column;align-items:flex-start;gap:.45rem}
+.a11y-fixed-trigger{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(59,130,246,.45);transition:transform .2s,background .2s}
+.a11y-fixed-trigger:hover{transform:scale(1.08);background:var(--accent2)}
+.a11y-fixed-menu{display:none;flex-direction:column;gap:.38rem;min-width:185px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:.75rem;box-shadow:0 8px 32px rgba(0,0,0,.35)}
+.a11y-fixed-menu.open{display:flex}
+.a11y-fixed-title{font-family:var(--mono);font-size:.65rem;color:var(--muted);display:flex;align-items:center;gap:.4rem;margin-bottom:.2rem;padding-bottom:.38rem;border-bottom:1px solid var(--border)}
+
+/* ── SCROLL TOP ── */
+.scroll-top-btn{position:fixed;bottom:1.5rem;right:1.5rem;z-index:200;width:46px;height:46px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(59,130,246,.4);opacity:0;transform:translateY(12px);transition:opacity .3s,transform .3s,background .2s;pointer-events:none}
+.scroll-top-btn.visible{opacity:1;transform:translateY(0);pointer-events:all}
+.scroll-top-btn:hover{background:var(--accent2);transform:translateY(-2px)}
+
+/* ── SK-ROWS ── */
+.sk-rows{display:flex;flex-direction:column}
+.sk-row{display:grid;grid-template-columns:250px 1fr;align-items:center;padding:1rem 0 1rem 1.1rem;border-bottom:1px solid rgba(255,255,255,.05);border-left:3px solid transparent;gap:2rem;transition:background .15s}
+.sk-row:first-child{border-top:1px solid rgba(255,255,255,.05)}
+.sk-row:hover{background:rgba(255,255,255,.018)}
+.sk-row[data-color="blue"]{border-left-color:rgba(96,165,250,.5)}
+.sk-row[data-color="purple"]{border-left-color:rgba(167,139,250,.5)}
+.sk-row[data-color="cyan"]{border-left-color:rgba(34,211,238,.5)}
+.sk-row[data-color="indigo"]{border-left-color:rgba(129,140,248,.5)}
+.sk-row[data-color="orange"]{border-left-color:rgba(251,146,60,.5)}
+.sk-row-title{font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.2rem}
+.sk-row[data-color="blue"] .sk-row-title{color:#60a5fa}
+.sk-row[data-color="purple"] .sk-row-title{color:#a78bfa}
+.sk-row[data-color="cyan"] .sk-row-title{color:#22d3ee}
+.sk-row[data-color="indigo"] .sk-row-title{color:#818cf8}
+.sk-row[data-color="orange"] .sk-row-title{color:#fb923c}
+.sk-row-sub{font-family:var(--mono);font-size:.59rem;color:var(--muted)}
+.sk-row-tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.sk-tag{font-family:var(--mono);font-size:.63rem;color:rgba(200,215,230,.7);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:4px;padding:.22rem .55rem;transition:all .15s;white-space:nowrap}
+.sk-tag:hover{color:#e6edf3;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16)}
+
+/* ── SECURITY STACK ── */
+.stack-layout{display:grid;grid-template-columns:280px 1fr;gap:3.5rem;align-items:start}
+.stack-intro{position:sticky;top:100px}
+.stack-h2{font-size:2rem;font-weight:800;line-height:1.1;letter-spacing:-.02em;color:#e6edf3;margin-bottom:1rem}
+.stack-h2 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stack-desc{font-size:.87rem;color:var(--muted);line-height:1.75;margin-bottom:1.4rem}
+.stack-desc strong{color:var(--text)}
+.stack-meta{display:flex;flex-direction:column;gap:.5rem}
+.stack-badge{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--mono);font-size:.65rem;color:var(--green);background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:999px;padding:.3rem .75rem;width:fit-content}
+.stack-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:glow-green 2s ease-in-out infinite;flex-shrink:0}
+.stack-count{font-family:var(--mono);font-size:.6rem;color:var(--muted)}
+.stack-grid-wrap{display:flex;flex-direction:column;gap:2rem}
+.stack-group-label{font-family:var(--mono);font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.18em;margin-bottom:.8rem;display:flex;align-items:center;gap:.6rem}
+.stack-group-label::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.06)}
+.stack-group--blue{color:#60a5fa}
+.stack-group--purple{color:#a78bfa}
+.stack-group--cyan{color:#22d3ee}
+.stack-group--indigo{color:#818cf8}
+.stack-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
+.stk-card{display:flex;flex-direction:column;align-items:center;gap:.45rem;padding:.85rem .4rem .75rem;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);border-radius:10px;transition:transform .22s cubic-bezier(.34,1.56,.64,1),border-color .2s,background .2s,box-shadow .2s;position:relative;overflow:hidden;cursor:default}
+.stk-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.05),transparent 60%);opacity:0;transition:opacity .2s}
+.stk-card:hover{transform:translateY(-5px);background:rgba(255,255,255,.04)}
+.stk-card:hover::before{opacity:1}
+.stk-card[data-cat="blue"]:hover{box-shadow:0 8px 28px rgba(59,130,246,.18);border-color:rgba(59,130,246,.3)}
+.stk-card[data-cat="purple"]:hover{box-shadow:0 8px 28px rgba(167,139,250,.18);border-color:rgba(167,139,250,.3)}
+.stk-card[data-cat="cyan"]:hover{box-shadow:0 8px 28px rgba(34,211,238,.18);border-color:rgba(34,211,238,.3)}
+.stk-card[data-cat="indigo"]:hover{box-shadow:0 8px 28px rgba(129,140,248,.18);border-color:rgba(129,140,248,.3)}
+.stk-logo{width:44px;height:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.stk-logo svg{width:44px;height:44px}
+
+/* ── REAL BRAND LOGOS (IMG) ── */
+.stk-logo img.stk-logo-img{
+  width:44px;
+  height:44px;
+  max-width:44px;
+  max-height:44px;
+  object-fit:contain;
+  display:block;
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));
+}
+.stk-logo img.stk-logo-img--wide{
+  width:62px;
+  max-width:62px;
+  height:30px;
+  max-height:30px;
+}
+.stk-logo--missing{
+  opacity:.35;
+}
+.stk-name{font-family:var(--mono);font-size:.62rem;font-weight:600;color:#c9d1d9;text-align:center;line-height:1.3}
+.stk-cat-tag{font-family:var(--mono);font-size:.5rem;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;text-align:center}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .stack-layout{grid-template-columns:220px 1fr;gap:2rem}
+  .stack-cards{grid-template-columns:repeat(4,1fr)}
+  .stack-intro{position:static}
+}
+@media(max-width:760px){
+  .stack-layout{grid-template-columns:1fr}
+  .stack-cards{grid-template-columns:repeat(2,1fr)}
+  .sk-row{grid-template-columns:1fr;gap:.55rem;padding:.85rem 1rem}
+  .soclab-grid{grid-template-columns:1fr}
+  .soclab-header{flex-direction:column}
+}
+@media(max-width:480px){
+  .stack-cards{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ── REAL BRAND LOGOS — uniform rendering ── */
+.stk-logo {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.stk-logo svg {
+  width: 44px;
+  height: 44px;
+  max-width: 44px;
+  max-height: 44px;
+  display: block;
+  /* MITRE viewBox is 50x24 — force uniform container */
+}
+/* Cards with text-based logos (MITRE) need wider svg */
+.stk-card[data-cat="blue"]:nth-child(3) .stk-logo svg {
+  width: 52px;
+  height: 26px;
+}
+/* Tighten card padding slightly for uniform layout */
+.stk-card {
+  min-height: 105px;
+  justify-content: center;
+}
+
+/* ── SKILLS COLOR UNIFICATION (Pro / Traditional) ── */
+:root{
+  --skill-accent: #2563EB;
+}
+.sk-row{border-left-color: rgba(37,99,235,.55)!important;}
+.sk-row-title{color: var(--skill-accent)!important;}
+.sk-row[data-color="blue"],.sk-row[data-color="purple"],.sk-row[data-color="cyan"],.sk-row[data-color="indigo"],.sk-row[data-color="orange"]{
+  border-left-color: rgba(37,99,235,.55)!important;
+}
+.sk-row[data-color="blue"] .sk-row-title,
+.sk-row[data-color="purple"] .sk-row-title,
+.sk-row[data-color="cyan"] .sk-row-title,
+.sk-row[data-color="indigo"] .sk-row-title,
+.sk-row[data-color="orange"] .sk-row-title{
+  color: var(--skill-accent)!important;
+}
+/* Keep subtitles neutral */
+.sk-row-sub{color: var(--muted)!important;}
+
+
+/* ── UI POLISH (requested) ───────────────────────────────────────────── */
+:root{
+  --bg:#0f172a;
+  --bg2:#111c33;
+  --panel:rgba(17,24,39,.62);
+  --panel2:rgba(15,23,42,.55);
+  --text:#e5e7eb;
+  --muted:#a7b0c0;
+}
+
+/* Lighter, still professional */
+body{
+  background:
+    radial-gradient(1200px 800px at 20% -10%, rgba(37,99,235,.18), transparent 60%),
+    radial-gradient(900px 700px at 90% 10%, rgba(99,102,241,.12), transparent 55%),
+    radial-gradient(1000px 900px at 60% 110%, rgba(20,184,166,.10), transparent 55%),
+    var(--bg);
+  color:var(--text);
+}
+
+/* Cyber simple name (no avatar) */
+.nav-left{gap:.75rem}
+.nav-name{
+  font-family:var(--mono);
+  letter-spacing:.04em;
+  font-weight:600;
+  color:rgba(255,255,255,.92);
+}
+
+/* Section soft multi-accent (subtle, not flashy) */
+section{position:relative}
+section::before{
+  content:'';
+  position:absolute;
+  inset:-40px -10px;
+  pointer-events:none;
+  background: radial-gradient(800px 420px at 12% 15%, var(--section-accent, rgba(37,99,235,.16)), transparent 62%);
+  filter: blur(30px);
+  opacity:.9;
+}
+section > *{position:relative; z-index:1}
+
+#about{--section-accent: rgba(37,99,235,.20)}
+#parcours{--section-accent: rgba(99,102,241,.18)}
+#experiences{--section-accent: rgba(20,184,166,.16)}
+#projects{--section-accent: rgba(236,72,153,.12)}
+#certs{--section-accent: rgba(245,158,11,.10)}
+#skills{--section-accent: rgba(37,99,235,.16)}
+#stack{--section-accent: rgba(37,99,235,.16)}
+#upskills{--section-accent: rgba(99,102,241,.14)}
+#contact{--section-accent: rgba(20,184,166,.14)}
+
+/* Glassy cards for experience + projects (traditional cyber dashboard) */
+.card, .proj-card, .cert-card, .skill-card, .stack-card{
+  background: var(--panel2) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(148,163,184,.16) !important;
+}
+.card:hover, .proj-card:hover, .cert-card:hover, .skill-card:hover, .stack-card:hover{
+  border-color: rgba(37,99,235,.35) !important;
+}
+
+/* Timeline items become readable glass panels */
+.timeline::before{opacity:.45}
+.tl-item{padding-bottom:1.6rem}
+.tl-item > div:nth-child(2){
+  background: var(--panel2);
+  border: 1px solid rgba(148,163,184,.16);
+  border-radius: 14px;
+  padding: 14px 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+
+/* Improve readability of long descriptions inside projects/experience */
+.proj-desc2, .tl-desc{
+  color: rgba(229,231,235,.84);
+  line-height: 1.55;
+}
+
+.nav-avatar{display:none !important}
+
+
+/* ── ABOUT (restore arborescence connectors + wider right column) ── */
+.about-diagram{padding:2rem 0 2rem 0 !important;}
+.about-diagram::before{left:0 !important;}
+.diag-bridge{display:block !important;}
+.diag-row{padding:1rem 0 1rem 2.4rem !important;}
+.diag-row::before{display:block !important;}
+.diag-sub-line{display:block !important;}
+/* Slightly extend ABOUT section width */
+#about{max-width:1180px;}
+@media(max-width:900px){
+  #about{max-width:1100px;}
+  .about-layout{grid-template-columns:1fr;gap:1.1rem;}
+}
+
+
+/* ===== Experience Logo ===== */
+
+.xp-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0,150,255,0.15);
+}
+
+.xp-logo-img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    display: none;
+}
+
+.xp-logo.has-img .xp-logo-img {
+    display: block;
+}
+
+.logo-txt {
+    font-weight: 600;
+    color: #6aa8ff;
+    font-size: 18px;
+}
+
+.xp-logo.has-img .logo-txt {
+    display: none;
+}
+
+</style>
+
+<style>
+.scroll-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+</style>
+
+
+<style id="brand-marquee-css">
+.brand-marquee{
+  position: relative;
+  margin-top: 18px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(10,14,20,0.55);
+  border-radius: 999px;
+  overflow: hidden;
+  padding: 10px 0;
+}
+.brand-marquee::before,
+.brand-marquee::after{
+  content:"";
+  position:absolute;
+  top:0; bottom:0;
+  width:90px;
+  pointer-events:none;
+  z-index:2;
+}
+.brand-marquee::before{
+  left:0;
+  background: linear-gradient(90deg, rgba(8,10,14,1), rgba(8,10,14,0));
+}
+.brand-marquee::after{
+  right:0;
+  background: linear-gradient(270deg, rgba(8,10,14,1), rgba(8,10,14,0));
+}
+
+.brand-track{
+  display:flex;
+  gap: 28px;
+  align-items:center;
+  width:max-content;
+  will-change: transform;
+  animation: brandScroll 28s linear infinite;
+  padding-left: 30px;
+}
+.brand-marquee:hover .brand-track{
+  animation-play-state: paused;
+}
+
+.brand{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding: 14px 22px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.06);
+        background: rgba(255,255,255,0.02);
+    }
+.brand img{
+        height: 34px;
+        width: auto;
+        display:block;
+        opacity: 0.95;
+        filter: none;
+    }
+.brand .label{
+  font-size: 13px;
+  color: rgba(225,235,255,0.85);
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+@keyframes brandScroll{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
+
+/* Accessibility */
+.sr-only{
+  position:absolute !important;
+  width:1px; height:1px;
+  padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0);
+  white-space:nowrap; border:0;
+}
+</style>
+
+<style id="flat-bg-override">
+  body:not([data-theme="light"]) { background: #080d14 !important; background-image: none !important; }
+  body:not([data-theme="light"])::before, body:not([data-theme="light"])::after { display: none !important; content: none !important; }
+  body:not([data-theme="light"]) section::before, body:not([data-theme="light"]) section::after { display: none !important; content: none !important; background: none !important; }
+  body[data-theme="light"] { background: #f5f7fa !important; background-image: none !important; }
+</style><style id="scrollbtn-redesign">
+.scroll-wrap { position: relative; }
+.scroll-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 36px; height: 80px; border-radius: 6px;
+  border: 1px solid rgba(59,130,246,0.18);
+  background: rgba(8,13,20,0.75);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  color: rgba(148,163,184,0.7);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; user-select: none;
+  transition: border-color 0.2s, color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.18s;
+  z-index: 10; opacity: 0; pointer-events: none;
+}
+.scroll-wrap:hover .scroll-btn { opacity: 1; pointer-events: all; }
+.scroll-btn:hover {
+  border-color: rgba(59,130,246,0.55); color: #3b82f6;
+  background: rgba(59,130,246,0.08);
+  box-shadow: 0 0 18px rgba(59,130,246,0.15), inset 0 0 12px rgba(59,130,246,0.04);
+  transform: translateY(-50%) scaleY(1.04);
+}
+.scroll-btn::before {
+  content: ''; position: absolute; top: 0; left: 20%; right: 20%;
+  height: 1.5px; background: linear-gradient(90deg, transparent, rgba(59,130,246,0.6), transparent);
+  border-radius: 999px; opacity: 0; transition: opacity 0.2s;
+}
+.scroll-btn:hover::before { opacity: 1; }
+.scroll-btn.left  { left: -14px; }
+.scroll-btn.right { right: -14px; }
+.scroll-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+@media (max-width: 760px) { .scroll-btn { display: none; } }
+</style><style id="contact-redesign">
+/* ── Contact redesign v18 ── */
+#contact { padding-bottom: 3rem; }
+
+.cta-block {
+  margin-bottom: 2.8rem;
+}
+.cta-eyebrow {
+  font-family: var(--mono);
+  font-size: .64rem;
+  color: var(--accent);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  margin-bottom: .7rem;
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+}
+.cta-eyebrow::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  max-width: 60px;
+}
+.cta-heading {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: #e6edf3;
+  line-height: 1.18;
+  letter-spacing: -.025em;
+  margin-bottom: .75rem;
+}
+[data-theme="light"] .cta-heading { color: #0f1315; }
+.cta-heading em { font-style: normal; color: var(--accent); }
+.cta-sub {
+  font-size: .9rem;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+/* Ligne d'actions */
+.contact-actions-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .7rem;
+  margin-bottom: 2rem;
+}
+.clink {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: var(--mono);
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  padding: .6rem 1.1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.03);
+  transition: border-color .18s, color .18s, background .18s, transform .18s;
+}
+.clink:hover {
+  border-color: rgba(59,130,246,.45);
+  color: #e6edf3;
+  background: rgba(59,130,246,.06);
+  transform: translateY(-2px);
+}
+.clink.primary {
+  background: var(--accent);
+  color: #0d1117;
+  border-color: var(--accent);
+  font-weight: 700;
+}
+.clink.primary:hover {
+  background: var(--accent2);
+  border-color: var(--accent2);
+  transform: translateY(-2px);
+}
+.clink svg {
+  width: 14px; height: 14px;
+  stroke: currentColor; fill: none;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.clink-sep {
+  width: 1px; height: 20px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+/* Disponibilité inline discrète */
+.avail-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  font-family: var(--mono);
+  font-size: .7rem;
+  color: var(--muted);
+  padding: .38rem .75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(34,197,94,.18);
+  background: rgba(34,197,94,.04);
+}
+.avail-inline .avail-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px rgba(34,197,94,.6);
+  animation: glow-green 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.avail-inline .avail-txt { color: #e6edf3; font-weight: 600; }
+.avail-inline .avail-meta { color: var(--muted); }
+
+/* Coordonnées copiables — ligne minimaliste */
+.contact-coords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-bottom: 1.6rem;
+}
+.coord-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  font-family: var(--mono);
+  font-size: .72rem;
+  color: var(--muted);
+  background: transparent;
+  border: 1px dashed rgba(129,140,248,.22);
+  border-radius: 6px;
+  padding: .42rem .8rem;
+  cursor: pointer;
+  transition: border-color .18s, color .18s, background .18s;
+  user-select: none;
+}
+.coord-pill:hover {
+  border-color: rgba(129,140,248,.5);
+  color: var(--text);
+  background: rgba(129,140,248,.04);
+}
+.coord-pill svg {
+  width: 11px; height: 11px;
+  stroke: currentColor; fill: none;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  opacity: .5;
+}
+
+/* Supprime l'ancien contact-grid */
+.contact-grid, .contact-panel, .contact-copy, .avail-card,
+.contact-note, .contact-actions { display: none !important; }
+
+@media (max-width: 640px) {
+  .contact-actions-row { flex-direction: column; align-items: flex-start; }
+}
+</style><style id="light-mode-fix">
+body[data-theme="light"]{--bg:#f5f7fa;--bg2:#ffffff;--bg3:#ebeef2;--text:#1c232d;--muted:#6b7a8d;--border:#d1dbe6;--accent:#2563eb;--accent2:#6366f1;background:#f5f7fa!important;color:#1c232d!important}
+body[data-theme="light"] section{background:transparent!important}
+body[data-theme="light"] nav{background:rgba(245,247,250,.97)!important;border-color:#d1dbe6!important}
+body[data-theme="light"] .nav-links a,body[data-theme="light"] .nav-name{color:#1c232d!important}
+body[data-theme="light"] .nav-icon{color:#6b7a8d!important}
+body[data-theme="light"] .card,body[data-theme="light"] .proj-card,body[data-theme="light"] .cert-card,body[data-theme="light"] .xp-scroll-card,body[data-theme="light"] .up-card2,body[data-theme="light"] .skill-pill,body[data-theme="light"] .contact-panel,body[data-theme="light"] .avail-item,body[data-theme="light"] .stk-card{background:#ffffff!important;border-color:#d1dbe6!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;color:#1c232d!important}
+body[data-theme="light"] h2,body[data-theme="light"] .proj-title2,body[data-theme="light"] .xp-title,body[data-theme="light"] .cert-title,body[data-theme="light"] .up-name2,body[data-theme="light"] .tl-title,body[data-theme="light"] .stk-name,body[data-theme="light"] .diag-num,body[data-theme="light"] .diag-lbl,body[data-theme="light"] .stack-h2,body[data-theme="light"] .hero-title,body[data-theme="light"] .cta-heading{color:#0f1315!important}
+body[data-theme="light"] .proj-desc2,body[data-theme="light"] .xp-desc,body[data-theme="light"] .tl-desc,body[data-theme="light"] .up-desc2,body[data-theme="light"] .stk-cat-tag,body[data-theme="light"] .stack-desc,body[data-theme="light"] .tl-date,body[data-theme="light"] .xp-period,body[data-theme="light"] .hero-sub,body[data-theme="light"] .cta-sub{color:#6b7a8d!important}
+body[data-theme="light"] .tl-dot{background:#f5f7fa!important;border-color:#2563eb!important}
+body[data-theme="light"] .tl-dot::after{background:#2563eb!important}
+body[data-theme="light"] .timeline::before{background:#d1dbe6!important}
+body[data-theme="light"] .tl-item>div:nth-child(2){background:#ffffff!important;border-color:#d1dbe6!important;backdrop-filter:none!important}
+body[data-theme="light"] .hero-badge{background:rgba(37,99,235,.06)!important;border-color:#d1dbe6!important;color:#1c232d!important}
+body[data-theme="light"] .stag,body[data-theme="light"] .sk-tag,body[data-theme="light"] .diag-tag,body[data-theme="light"] .proj-tag2,body[data-theme="light"] .xp-tag{background:#ebeef2!important;border-color:#d1dbe6!important;color:#1c232d!important}
+body[data-theme="light"] .copyline,body[data-theme="light"] .coord-pill,body[data-theme="light"] .cbtn,body[data-theme="light"] .clink{background:#ffffff!important;border-color:#d1dbe6!important;color:#1c232d!important}
+body[data-theme="light"] .contact-note{background:#ebeef2!important;border-color:#d1dbe6!important;color:#6b7a8d!important}
+body[data-theme="light"] .section-label{color:#2563eb!important}
+body[data-theme="light"] .section-label::after{background:#d1dbe6!important}
+body[data-theme="light"] .scroll-btn{background:rgba(245,247,250,.95)!important;border-color:#d1dbe6!important;color:#6b7a8d!important}
+body[data-theme="light"] footer{border-color:#d1dbe6!important;color:#6b7a8d!important}
+body[data-theme="light"] .lang-switch{background:rgba(255,255,255,.9)!important;border-color:#d1dbe6!important}
+body[data-theme="light"] .lang-btn{color:#6b7a8d!important}
+body[data-theme="light"] .lang-btn.active{background:#2563eb!important;color:#fff!important}
+body[data-theme="light"] .whoami-ascii{color:#2563eb!important;text-shadow:none!important}
+body[data-theme="light"] .sk-tag{background:#ebeef2!important;border-color:#d1dbe6!important;color:#4b5563!important}
+</style><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
+<style id="nav-cyber">
+.nav-avatar-img{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--accent);overflow:hidden;flex-shrink:0;position:relative;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center}
+.nav-avatar-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.nav-avatar-fallback{font-family:var(--mono);font-size:.65rem;font-weight:700;color:#fff;z-index:1;position:relative;pointer-events:none}
+.nav-avatar-img:not(.no-photo) .nav-avatar-fallback{opacity:0}
+.nav-avatar-img.no-photo img{display:none!important}
+.nav-name-cyber{font-family:'Orbitron',var(--mono),monospace;font-size:.78rem;font-weight:700;letter-spacing:.12em;white-space:nowrap;text-transform:lowercase;background:linear-gradient(90deg,#e2e8f0 40%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+body[data-theme="light"] .nav-name-cyber{background:linear-gradient(90deg,#1c232d 40%,#2563eb 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links a{font-size:.71rem!important;font-weight:500!important}
+</style></head>
+<body>
+<div class="a11y-fixed" id="a11yFixed">
+  <button class="a11y-fixed-trigger" onclick="document.getElementById('a11yFixedMenu').classList.toggle('open')" aria-label="Accessibilité" title="Accessibilité">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="3" r="1.8"/><path d="M19.07 8.07A1 1 0 0 0 18 7.5h-5.5V6h2a1 1 0 0 0 0-2H9.5a1 1 0 0 0 0 2h1.5v1.5H6a1 1 0 0 0-.93 1.37l2 5A1 1 0 0 0 8 14.5h.09L7 20.5a1 1 0 1 0 1.97.35l1.2-6h3.66l1.2 6a1 1 0 1 0 1.97-.35l-1.09-6.5H17a1 1 0 0 0 .95-.68l2-6a1 1 0 0 0-.88-1.25z"/></svg>
+  </button>
+  <div class="a11y-fixed-menu" id="a11yFixedMenu">
+    <div class="a11y-fixed-title">♿ <span class="fr">Accessibilité</span><span class="en">Accessibility</span></div>
+    <button class="a11y-btn" id="btnContrast" onclick="toggleContrast()">⬛ <span class="fr">Contraste élevé</span><span class="en">High contrast</span></button>
+    <button class="a11y-btn" id="btnDyslexia" onclick="toggleDyslexia()">Aa <span class="fr">Police dyslexie</span><span class="en">Dyslexia font</span></button>
+    <button class="a11y-btn" id="btnMotion" onclick="toggleMotion()">⏸ <span class="fr">Réduire animations</span><span class="en">Reduce motion</span></button>
+    <button class="a11y-btn" onclick="resetA11y()">↺ <span class="fr">Réinitialiser</span><span class="en">Reset</span></button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <div class="nav-avatar-img">
+      <img src="img/profile.jpg" alt="JK" onerror="this.style.display='none';this.parentElement.classList.add('no-photo')">
+      <span class="nav-avatar-fallback">JK</span>
+    </div>
+    <span class="nav-name-cyber">jean.koumou</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about"><span class="fr">À propos</span><span class="en">About</span></a></li>
+    <li><a href="#parcours"><span class="fr">Parcours</span><span class="en">Timeline</span></a></li>
+    <li><a href="#experiences"><span class="fr">Expériences</span><span class="en">Experience</span></a></li>
+    <li><a href="#projects"><span class="fr">Projets</span><span class="en">Projects</span></a></li>
+    <li><a href="#certs">Certifications</a></li>
+    <li><a href="#skills"><span class="fr">Compétences</span><span class="en">Skills</span></a></li>
+    <li><a href="#upskills">Upskills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://github.com/votrenom" target="_blank" class="nav-icon" title="GitHub">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+    </a>
+    <a href="https://linkedin.com/in/jean-elie-koumou" target="_blank" class="nav-icon" title="LinkedIn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    <button class="nav-icon" onclick="toggleTheme()" title="Thème" style="background:transparent;border:none;cursor:pointer">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+    <div class="lang-switch">
+      <button class="lang-btn active" id="btnFR" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" id="btnEN" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- A11Y -->
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-badge"><span class="badge-dot"></span><span class="fr">Disponible dès maintenant</span><span class="en">Available now</span></div>
+  <h1 class="hero-title">
+    <span class="fr">Comprendre les attaques,<br/><em>sécuriser</em> et améliorer vos systèmes.</span>
+    <span class="en">Understand attacks,<br/><em>secure</em> and improve your systems.</span>
+  </h1>
+  <p class="hero-sub">
+    <strong><span class="fr">Technicien Systèmes &amp; Cybersécurité</span><span class="en">Systems &amp; Cybersecurity Technician</span></strong>
+    <span class="fr"> — avec sens du service, curiosité technique et une méthodologie rigoureuse de sécurité.</span>
+    <span class="en"> — service-oriented, technically curious, with a rigorous security methodology.</span>
+  </p>
+  <div class="hero-ctas">
+    <a href="#projects" class="btn btn-primary">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+      <span class="fr">Voir mes projets</span><span class="en">View projects</span>
+    </a>
+    <a href="#contact" class="btn btn-ghost">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <span class="fr">Me contacter</span><span class="en">Contact me</span>
+    </a>
+    <a href="Jean_Elie_Koumou_CV_Cyber_2026.pdf" class="btn btn-ghost">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span class="fr">Voir mon CV</span><span class="en">View my CV</span>
+    </a>
+  </div>
+  <div class="scroll-hint">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:-8px"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">01 // <span class="fr">À propos</span><span class="en">About</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.8rem;flex-wrap:wrap;gap:.5rem">
+    <h2><span class="fr">À propos</span><span class="en">About me</span></h2>
+    <span style="font-family:var(--mono);font-size:.74rem;color:var(--muted);font-style:italic"><span class="fr">Analytique, rigoureux, orienté terrain.</span><span class="en">Analytical, rigorous, hands-on.</span></span>
+  </div>
+  <div class="about-layout">
+    <!-- Carte gauche -->
+    <div class="card about-card-left">
+      <div class="card-label whoami-label"><pre class="whoami-ascii" aria-label="whoami"><span class="fr"> ___       __   ___  ________  ________  _____ ______   ___     
+|\  \     |\  \|\  \|\   __  \|\   __  \|\   _ \  _   \|\  \    
+\ \  \    \ \  \ \  \ \  \|\  \ \  \|\  \ \  \\\__\ \  \ \  \   
+ \ \  \  __\ \  \ \  \ \   __  \ \  \\\ \ \  \\|__| \  \ \  \  
+  \ \  \|\__\_\  \ \  \ \  \ \  \ \  \\\ \ \  \    \ \  \ \  \ 
+   \ \____________\ \__\ \__\ \__\ \_______\ \__\    \ \__\ \__\
+    \|____________|\|__|\|__|\|__|\|_______|\|__|     \|__|\|__|
+$ whoami</span><span class="en"> ___       __   ___  ________  ________  _____ ______   ___     
+|\  \     |\  \|\  \|\   __  \|\   __  \|\   _ \  _   \|\  \    
+\ \  \    \ \  \ \  \ \  \|\  \ \  \|\  \ \  \\\__\ \  \ \  \   
+ \ \  \  __\ \  \ \  \ \   __  \ \  \\\ \ \  \\|__| \  \ \  \  
+  \ \  \|\__\_\  \ \  \ \  \ \  \ \  \\\ \ \  \    \ \  \ \  \ 
+   \ \____________\ \__\ \__\ \__\ \_______\ \__\    \ \__\ \__\
+    \|____________|\|__|\|__|\|__|\|_______|\|__|     \|__|\|__|
+$ whoami</span></pre></div>
+      <p class="about-intro">
+        <span class="fr">Je m'appelle <strong>Jean-Elie</strong>, j'ai <strong>21 ans</strong>. Diplômé d'un <strong>BTS CIEL</strong> et actuellement en Bachelor Administrateur d'Infrastructures Sécurisées, j'aime œuvrer à la résolution de problèmes techniques, <strong>documenter</strong> mes analyses et <strong>partager</strong> mes apprentissages.</span>
+        <span class="en">My name is <strong>Jean-Elie</strong>, I'm <strong>21</strong>. Holding a <strong>BTS CIEL</strong> and currently in a Bachelor's in Secured Infrastructure Administration, I enjoy solving technical problems, <strong>documenting</strong> findings and <strong>sharing</strong> knowledge.</span>
+      </p>
+      <div class="about-more" id="aboutMore">
+        <div class="about-more-inner">
+          <p class="about-text-p">
+            <span class="fr">Mon approche est concrète : je construis des <strong>labs réels</strong>, j'analyse de vraies attaques Active Directory et je documente chaque résultat. Mon <strong>SOC Automation Lab</strong> intègre Wazuh, Suricata et Sysmon sur un environnement Proxmox segmenté.</span>
+            <span class="en">My approach is hands-on: I build <strong>real labs</strong>, analyze actual Active Directory attacks and document every result. My <strong>SOC Automation Lab</strong> integrates Wazuh, Suricata and Sysmon on a segmented Proxmox environment.</span>
+          </p>
+          <p class="about-text-p">
+            <span class="fr">Je pratique une <strong>veille cyber active</strong> (Shodan, Censys, CTI) et partage mes apprentissages sur LinkedIn.</span>
+            <span class="en">I maintain an <strong>active cyber watch</strong> (Shodan, Censys, CTI) and share findings on LinkedIn.</span>
+          </p>
+          <div class="aspiration">
+            <p><span class="fr"><strong>Objectif :</strong> rejoindre une équipe SOC ou Blue Team pour contribuer à la détection d'incidents, l'analyse de menaces et l'amélioration continue de la posture sécurité.</span><span class="en"><strong>Goal:</strong> join a SOC or Blue Team to contribute to incident detection, threat analysis and continuous security posture improvement.</span></p>
+          </div>
+          <ul class="about-bullets">
+            <li><span class="fr">SOC, Blue Team &amp; analyse de menaces (MITRE ATT&amp;CK)</span><span class="en">SOC, Blue Team &amp; threat analysis (MITRE ATT&amp;CK)</span></li>
+            <li><span class="fr">Administration Windows Server, Linux &amp; Active Directory</span><span class="en">Windows Server, Linux &amp; Active Directory administration</span></li>
+            <li><span class="fr">Supervision &amp; détection : Wazuh, Suricata, Fortinet</span><span class="en">Supervision &amp; detection: Wazuh, Suricata, Fortinet</span></li>
+            <li><span class="fr">OSINT responsable &amp; veille géopolitique cyber</span><span class="en">Responsible OSINT &amp; cyber geopolitical watch</span></li>
+          </ul>
+        </div>
+      </div>
+      <button class="btn-toggle" id="toggleBtn" onclick="toggleAbout()">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        <span id="toggleLabel"><span class="fr">En savoir plus</span><span class="en">Learn more</span></span>
+      </button>
+    </div>
+    <!-- Diagramme -->
+    <div class="about-diagram">
+      
+      <div class="diag-row">
+        <div class="diag-content">
+          <span class="diag-num">30+</span>
+          <span class="diag-lbl"><span class="fr">déploiements &amp; configurations sécurisées</span><span class="en">secure deployments &amp; configurations</span></span>
+          <div class="diag-tags"><span class="diag-tag">SIEM</span><span class="diag-tag">Active Directory</span><span class="diag-tag">IDS</span><span class="diag-tag">agents</span><span class="diag-tag">routage</span><span class="diag-tag">segmentation réseau</span></div>
+        </div>
+      </div>
+      <div class="diag-row">
+        <div class="diag-content">
+          <span class="diag-num">5+</span>
+          <span class="diag-lbl"><span class="fr">attaques simulées, détectées &amp; analysées</span><span class="en">attacks simulated, detected &amp; analyzed</span></span>
+          <div class="diag-tags"><span class="diag-tag">Kerberoasting</span><span class="diag-tag">bruteforce</span><span class="diag-tag">scan réseau</span><span class="diag-tag">élévation</span><span class="diag-tag">mouvement latéral</span></div>
+        </div>
+      </div>
+      <div class="diag-row">
+        <div class="diag-content">
+          <span class="diag-num">4</span>
+          <span class="diag-lbl"><span class="fr">projets techniques majeurs menés</span><span class="en">major technical projects led</span></span>
+          <div class="diag-sub">
+            <div class="diag-sub-line"></div>
+            <div>
+              <span class="diag-sub-num">1</span>
+              <span class="diag-sub-lbl">SOC Automation Lab complet</span>
+              <div class="diag-tags" style="margin-top:.3rem"><span class="diag-tag g">GOAD</span><span class="diag-tag g">Wazuh</span><span class="diag-tag g">Suricata</span><span class="diag-tag g">n8n</span><span class="diag-tag g">IRIS</span><span class="diag-tag g">OpenCTI</span><span class="diag-tag g">IA locale</span><span class="diag-tag g">Element</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARCOURS -->
+<section id="parcours">
+  <div class="section-label">02 // <span class="fr">Parcours</span><span class="en">Timeline</span></div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div>
+        <div class="tl-date">2025 — <span class="fr">en cours</span><span class="en">ongoing</span></div>
+        <div class="tl-title"><span class="fr">Bachelor Administrateur d'Infrastructures Sécurisées</span><span class="en">Bachelor's in Secured Infrastructure Administration</span></div>
+        <div class="tl-org">Studi — <span class="fr">Formation à distance</span><span class="en">Remote learning</span></div>
+        <div class="tl-desc"><span class="fr">Sécurité systèmes, réseaux, SIEM, gestion des incidents, Active Directory, conformité ISO/NIST.</span><span class="en">Systems security, networks, SIEM, incident management, Active Directory, ISO/NIST compliance.</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div>
+        <div class="tl-date">2023 — 2025</div>
+        <div class="tl-title">BTS CIEL — <span class="fr">Cybersécurité, Informatique et réseaux, Électronique</span><span class="en">Cybersecurity, IT networks, Electronics</span></div>
+        <div class="tl-org">Lycée Blaise Pascal, Longuenesse</div>
+        <div class="tl-desc"><span class="fr">Administration réseaux, électronique embarquée, systèmes industriels, programmation.</span><span class="en">Network administration, embedded electronics, industrial systems, programming.</span></div>
+      </div>
+    </div>
+    
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div>
+        <div class="tl-date">2020 — 2023</div>
+        <div class="tl-title"><span class="fr">Baccalauréat Sciences Mathématiques</span><span class="en">Baccalaureate — Mathematics &amp; Sciences</span></div>
+        <div class="tl-org"><span class="fr">Lycée Henri Sylvoz — Moanda, Gabon</span><span class="en">Lycée Henri Sylvoz — Moanda, Gabon</span></div>
+        <div class="tl-desc">
+          <span class="fr">Spécialités : <strong>Mathématiques</strong> et <strong>Physique</strong>. Base solide en raisonnement, modélisation et rigueur scientifique.</span>
+          <span class="en">Specialties: <strong>Mathematics</strong> and <strong>Physics</strong>. Strong foundations in reasoning, modelling and scientific rigor.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPÉRIENCES -->
+<section id="experiences">
+  <div class="section-label">03 // <span class="fr">Expériences</span><span class="en">Experience</span></div>
+  <div class="scroll-row">
+
+    <div class="xp-scroll-card xp-g">
+      <div class="xp-header">
+        <div class="xp-logo"><img class="xp-logo-img" src="img/logo-freelance.png" alt="Freelance" onload="this.parentElement.classList.add('has-img')" onerror="this.style.display='none'"><span class="logo-txt">JE</span></div>
+        <div class="xp-meta">
+          <div class="xp-title"><span class="fr">Technicien Systèmes &amp; Services Cloud</span><span class="en">Systems &amp; Cloud Services Technician</span></div>
+          <div class="xp-company">Freelance</div>
+          <div class="xp-period">2025 · <span class="fr">Indépendant</span><span class="en">Self-employed</span></div>
+        </div>
+      </div>
+      <div class="xp-divider"></div>
+      <div class="xp-desc"><span class="fr">Administration <span class="hi">Microsoft 365</span>, gestion des identités (AAD), support N1/N2, standardisation des procédures et <span class="hi">sensibilisation à l'hygiène numérique</span>.</span><span class="en"><span class="hi">Microsoft 365</span> admin, identity management (AAD), N1/N2 support, procedure standardization and <span class="hi">digital hygiene awareness</span>.</span></div>
+      <div class="xp-tags"><span class="xp-tag">M365</span><span class="xp-tag">Azure AD</span><span class="xp-tag">Support N1/N2</span><span class="xp-tag">TeamViewer</span><span class="xp-tag">Documentation</span></div>
+    </div>
+
+    <div class="xp-scroll-card xp-b">
+      <div class="xp-header">
+        <div class="xp-logo"><img class="xp-logo-img" src="img/logo-sysdeco.png" alt="SYSDECO" onload="this.parentElement.classList.add('has-img')" onerror="this.style.display='none'"><span class="logo-txt">SD</span></div>
+        <div class="xp-meta">
+          <div class="xp-title"><span class="fr">Technicien Informatique Stagiaire</span><span class="en">IT Technician Intern</span></div>
+          <div class="xp-company">SYSDECO</div>
+          <div class="xp-period">2024 · Stage</div>
+        </div>
+      </div>
+      <div class="xp-divider"></div>
+      <div class="xp-desc"><span class="fr">Gestion de parc, <span class="hi">support N1/N2</span>, administration M365, rédaction de procédures. Ticketing &amp; suivi ITSM.</span><span class="en">Fleet management, <span class="hi">N1/N2 support</span>, M365 admin, procedure writing. Ticketing &amp; ITSM tracking.</span></div>
+      <div class="xp-tags"><span class="xp-tag">Gestion de parc</span><span class="xp-tag">M365 Admin</span><span class="xp-tag">ServiceNow</span><span class="xp-tag">Wireshark</span><span class="xp-tag">Helpdesk</span></div>
+    </div>
+
+    <div class="xp-scroll-card xp-p">
+      <div class="xp-header">
+        <div class="xp-logo"><img class="xp-logo-img" src="img/logo-blaise-pascal.png" alt="Lycée Blaise Pascal" onload="this.parentElement.classList.add('has-img')" onerror="this.style.display='none'"><span class="logo-txt">BP</span></div>
+        <div class="xp-meta">
+          <div class="xp-title"><span class="fr">Stagiaire — Espace d'Innovation Partagée</span><span class="en">Intern — Shared Innovation Space</span></div>
+          <div class="xp-company">Lycée Blaise Pascal, Longuenesse</div>
+          <div class="xp-period">2023 · Stage 2 <span class="fr">semaines</span><span class="en">weeks</span></div>
+        </div>
+      </div>
+      <div class="xp-divider"></div>
+      <div class="xp-desc"><span class="fr"><span class="hi">Reprogrammation firmware</span> imprimante 3D pro, <span class="hi">dépannage électronique</span>, <span class="hi">conception PCB</span>.</span><span class="en"><span class="hi">Firmware reprogramming</span> of professional 3D printer, <span class="hi">electronics troubleshooting</span>, <span class="hi">PCB design</span>.</span></div>
+      <div class="xp-tags"><span class="xp-tag">Firmware</span><span class="xp-tag"><span class="fr">Imprimante 3D</span><span class="en">3D Printer</span></span><span class="xp-tag">PCB</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section id="projects">
+  <div class="section-label">04 // <span class="fr">Projets Techniques</span><span class="en">Technical Projects</span></div>
+  <div class="scroll-row">
+
+    <div class="proj-card">
+      <div class="proj-body">
+        <div class="proj-head2">
+          <div class="proj-title2">SOC Automated Lab (2026)</div>
+          <span class="proj-status s-act">● ACTIVE</span>
+        </div>
+        <p class="proj-desc2">
+          <span class="fr">SOC Automation Lab complet avec GOAD, Wazuh, Suricata, n8n, IRIS, OpenCTI, IA locale et Element. Détection, triage, enrichissement CTI et gestion d’incidents sur réseau segmenté.</span>
+          <span class="en">Full SOC automation lab with GOAD, Wazuh, Suricata, n8n, IRIS, OpenCTI, local AI and Element. Detection, triage, CTI enrichment and incident handling on a segmented network.</span>
+        </p>
+        <div class="proj-tags2">
+          <span class="proj-tag2">GOAD</span><span class="proj-tag2">Wazuh</span><span class="proj-tag2">Suricata</span><span class="proj-tag2">n8n</span><span class="proj-tag2">IRIS</span><span class="proj-tag2">OpenCTI</span><span class="proj-tag2">Ollama</span><span class="proj-tag2">Element</span>
+        </div>
+      </div>
+      <div class="proj-img-zone" style="--proj-grad:linear-gradient(135deg,rgba(59,130,246,.12),rgba(129,140,248,.07));color:var(--accent)">
+        <img src="img/proj-soc-lab.png" alt="SOC Automated Lab" onerror="this.style.display='none'">
+        <span>SOC</span>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-body">
+        <div class="proj-head2">
+          <div class="proj-title2">Active Directory Forensic Toolkit (2026)</div>
+          <span class="proj-status s-act">● ACTIVE</span>
+        </div>
+        <p class="proj-desc2">
+          <span class="fr">Outil Python open source d’investigation AD. Analyse <strong>EVTX</strong> ou événements JSON, applique 17 règles IOC mappées MITRE ATT&amp;CK, corrèle des séquences multi-événements et génère un rapport complet <strong>HTML</strong>, <strong>JSON</strong> et <strong>CSV</strong> en une commande.</span>
+          <span class="en">Open-source Python AD forensics tool. Parses <strong>EVTX</strong> or JSON events, applies 17 IOC rules mapped to MITRE ATT&amp;CK, correlates multi-event attack chains and exports a full HTML, JSON and CSV report in one command.</span>
+        </p>
+        <div class="proj-tags2">
+          <span class="proj-tag2">Python</span><span class="proj-tag2"><strong>EVTX</strong></span><span class="proj-tag2">MITRE</span><span class="proj-tag2">IOC</span><span class="proj-tag2">Correlation</span><span class="proj-tag2">HTML Report</span>
+        </div>
+      </div>
+      <div class="proj-img-zone" style="--proj-grad:linear-gradient(135deg,rgba(129,140,248,.12),rgba(0,100,255,.07));color:var(--accent2)">
+        <img src="img/proj-ad-forensics.png" alt="AD Forensic Toolkit" onerror="this.style.display='none'">
+        <span>AD</span>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-body">
+        <div class="proj-head2">
+          <div class="proj-title2">Audio sur Ethernet (projet de fin de cycle)</div>
+          <span class="proj-status s-done">✓ DONE</span>
+        </div>
+        <p class="proj-desc2">
+          <span class="fr">Diffusion audio temps réel sur Ethernet avec synchronisation <strong>PTP (IEEE 1588)</strong> et flux <strong>RTP L24</strong> / <strong>AES67</strong>. Conception PCB, filtrage numérique, tests de latence et jitter sur Teensy 4.1.</span>
+          <span class="en">Real-time audio over Ethernet with <strong>PTP (IEEE 1588)</strong> sync and <strong>RTP L24</strong> / <strong>AES67</strong> streaming. PCB design, digital filtering, latency and jitter testing on Teensy 4.1.</span>
+        </p>
+        <div class="proj-tags2">
+          <span class="proj-tag2">Teensy 4.1</span><span class="proj-tag2">PTP 1588</span><span class="proj-tag2"><strong>AES67</strong></span><span class="proj-tag2"><strong>RTP L24</strong></span><span class="proj-tag2">DSP</span><span class="proj-tag2">PCB</span>
+        </div>
+      </div>
+      <div class="proj-img-zone" style="--proj-grad:linear-gradient(135deg,rgba(245,158,11,.1),rgba(255,100,0,.07));color:#f59e0b">
+        <img src="img/proj-audio-ethernet.png" alt="Audio sur Ethernet" onerror="this.style.display='none'">
+        <span>AUDIO</span>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-body">
+        <div class="proj-head2">
+          <div class="proj-title2">Robot Delta + OpenCV + communications sécurisées (2025)</div>
+          <span class="proj-status s-done">✓ DONE</span>
+        </div>
+        <p class="proj-desc2">
+          <span class="fr">Robot delta piloté par serveur avec vision OpenCV, calibration et détection. Sécurisation des communications serveur↔robot et supervision basique des échanges.</span>
+          <span class="en">Delta robot controlled by a server with OpenCV vision, calibration and detection. Secured server↔robot communications and basic monitoring.</span>
+        </p>
+        <div class="proj-tags2">
+          <span class="proj-tag2">OpenCV</span><span class="proj-tag2">Python</span><span class="proj-tag2">Robotique</span><span class="proj-tag2">Client/Server</span><span class="proj-tag2">Sécurisation</span>
+        </div>
+      </div>
+      <div class="proj-img-zone" style="--proj-grad:linear-gradient(135deg,rgba(168,85,247,.12),rgba(100,0,255,.07));color:#a855f7">
+        <img src="img/proj-delta.png" alt="Robot Delta" onerror="this.style.display='none'">
+        <span>ROBOT</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <div class="section-label">05 // Certifications</div>
+  <div class="scroll-row">
+
+    <div class="cert-card">
+      <div class="cert-img-zone">
+        <img src="img/cert-nist.png" alt="NIST" onerror="this.style.display='none'">
+        📘
+      </div>
+      <div class="cert-body2">
+        <div class="cert-title">NIST CSF 2.0 — Managing Risks <span class="cbadge cb-ok">2026</span></div>
+        <div class="cert-org">NIST / Coursera</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-img-zone">
+        <img src="img/cert-cisco.png" alt="Cisco" onerror="this.style.display='none'">
+        🌐
+      </div>
+      <div class="cert-body2">
+        <div class="cert-title">Cisco CyberOps — SOC Operations <span class="cbadge cb-ok">2026</span></div>
+        <div class="cert-org">Cisco Networking Academy</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-img-zone">
+        <img src="img/cert-anssi.png" alt="ANSSI" onerror="this.style.display='none'">
+        🛡️
+      </div>
+      <div class="cert-body2">
+        <div class="cert-title">MOOC Cybersécurité ANSSI <span class="cbadge cb-ok">OBTENU</span></div>
+        <div class="cert-org">SecNumacadémie</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-img-zone">
+        <img src="img/cert-cnil.png" alt="CNIL" onerror="this.style.display='none'">
+        ⚖️
+      </div>
+      <div class="cert-body2">
+        <div class="cert-title">Ateliers RGPD <span class="cbadge cb-ok">OBTENU</span></div>
+        <div class="cert-org">CNIL</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-img-zone">
+        <img src="img/cert-pix.png" alt="PIX" onerror="this.style.display='none'">
+        🎯
+      </div>
+      <div class="cert-body2">
+        <div class="cert-title">PIX — <span class="fr">Compétences numériques</span><span class="en">Digital skills</span> <span class="cbadge cb-ok">OBTENU</span></div>
+        <div class="cert-org">PIX.fr</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">06 // <span class="fr">Compétences</span><span class="en">Skills</span></div>
+<div class="sk-rows">
+    <div class="sk-row" data-color="blue">
+      <div class="sk-row-left"><div class="sk-row-title">Détection &amp; SOC</div><div class="sk-row-sub">SOC · Analyse · Threat Detection</div></div>
+      <div class="sk-row-tags"><span class="sk-tag">Wazuh SIEM</span><span class="sk-tag">Suricata IDS</span><span class="sk-tag">MITRE ATT&amp;CK</span><span class="sk-tag">Threat Hunting</span><span class="sk-tag">Log Analysis</span><span class="sk-tag">IOC / Threat Intel</span></div>
+    </div>
+    <div class="sk-row" data-color="purple">
+      <div class="sk-row-left"><div class="sk-row-title">Infrastructure &amp; Active Directory</div><div class="sk-row-sub">Administration · Hardening</div></div>
+      <div class="sk-row-tags"><span class="sk-tag">Linux / Debian</span><span class="sk-tag">Windows Server</span><span class="sk-tag">Active Directory</span><span class="sk-tag">GPO / LDAP</span><span class="sk-tag">VLAN / VPN</span><span class="sk-tag">Docker</span></div>
+    </div>
+    <div class="sk-row" data-color="cyan">
+      <div class="sk-row-left"><div class="sk-row-title">Automation &amp; DFIR</div><div class="sk-row-sub">Scripts · SOAR · Incident Response</div></div>
+      <div class="sk-row-tags"><span class="sk-tag">Python</span><span class="sk-tag">Bash</span><span class="sk-tag">PowerShell</span><span class="sk-tag">n8n Automation</span><span class="sk-tag">Git / GitHub</span><span class="sk-tag">Volatility</span></div>
+    </div>
+    <div class="sk-row" data-color="indigo">
+      <div class="sk-row-left"><div class="sk-row-title">Network Analysis &amp; OSINT</div><div class="sk-row-sub">Reconnaissance · Network Visibility</div></div>
+      <div class="sk-row-tags"><span class="sk-tag">Nmap</span><span class="sk-tag">Wireshark</span><span class="sk-tag">Shodan</span></div>
+    </div>
+    <div class="sk-row" data-color="orange">
+      <div class="sk-row-left"><div class="sk-row-title">Électronique &amp; Embarqué</div><div class="sk-row-sub">PCB · Microcontrôleurs</div></div>
+      <div class="sk-row-tags"><span class="sk-tag">Arduino / ESP32</span><span class="sk-tag">KiCad PCB</span><span class="sk-tag">C / C++</span></div>
+    </div>
+  </div>
+</section>
+<section id="stack">
+  <div class="section-label">07 // <span class="fr">Security Stack</span><span class="en">Security Stack</span></div>
+
+  <div class="stack-layout">
+    <div class="stack-intro">
+      <h2 class="stack-h2"><span class="fr">Outils<br><em>Utilisés</em></span><span class="en">Tools<br><em>Used</em></span></h2>
+      <p class="stack-desc">
+        <span class="fr">Ensemble des outils déployés dans mon <strong>SOC Lab</strong>, utilisés pour l'analyse de sécurité, la détection de menaces et l'administration d'infrastructures sécurisées.</span>
+        <span class="en">Tools deployed in my <strong>SOC Lab</strong>, used for security analysis, threat detection and secured infrastructure administration.</span>
+      </p>
+      <div class="stack-meta">
+        <span class="stack-badge"><span class="stack-badge-dot"></span><span class="fr">Lab actif</span><span class="en">Active lab</span></span>
+        <span class="stack-count fr">16 outils · 4 domaines</span>
+        <span class="stack-count en">16 tools · 4 domains</span>
+      </div>
+    </div>
+
+    <div class="stack-grid-wrap">
+
+      <div class="stack-group">
+        <div class="stack-group-label stack-group--blue">SOC &amp; Detection</div>
+        <div class="stack-cards">
+          <div class="stk-card" data-cat="blue">
+            <div class="stk-logo"><img class="stk-logo-img" src="img/logos/wazuh.svg" alt="Wazuh logo" loading="lazy" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('stk-logo--missing')"></div>
+            <span class="stk-name">Wazuh</span>
+            <span class="stk-cat-tag">SIEM</span>
+          </div><div class="stk-card" data-cat="blue">
+            <div class="stk-logo"><img class="stk-logo-img" src="img/logos/suricata.svg" alt="Suricata logo" loading="lazy" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('stk-logo--missing')"></div>
+            <span class="stk-name">Suricata</span>
+            <span class="stk-cat-tag">IDS/IPS</span>
+          </div><div class="stk-card" data-cat="blue">
+            <div class="stk-logo"><img class="stk-logo-img stk-logo-img--wide" src="img/logos/mitre_attack.svg" alt="MITRE ATT&CK logo" loading="lazy" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('stk-logo--missing')"></div>
+            <span class="stk-name">MITRE ATT&amp;CK</span>
+            <span class="stk-cat-tag">Framework</span>
+          </div><div class="stk-card" data-cat="blue">
+            <div class="stk-logo"><img class="stk-logo-img" src="img/logos/opencti.svg" alt="OpenCTI logo" loading="lazy" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('stk-logo--missing')"></div>
+            <span class="stk-name">OpenCTI</span>
+            <span class="stk-cat-tag">Threat Intel</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-group">
+        <div class="stack-group-label stack-group--purple">Infrastructure</div>
+        <div class="stack-cards">
+          <div class="stk-card" data-cat="purple">
+            <div class="stk-logo"><img class="stk-logo-img" src="img/logos/linux.svg" alt="Linux logo" loading="lazy" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('stk-logo--missing')"></div>
+            <span class="stk-name">Linux</span>
+            <span class="stk-cat-tag">OS / Admin</span>
+          </div><div class="stk-card" data-cat="purple">
+            <div class="stk-logo"><img class="stk-logo-img" src="img/logos/active_directory.svg" alt="Active Directory logo" loading="lazy" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('stk-logo--missing')"></div>
+            <span class="stk-name">Active Directory</span>
+            <span class="stk-cat-tag">LDAP / GPO</span>
+          </div><div class="stk-card" data-cat="purple">
+            <div class="stk-logo"><img class="stk-logo-img" src="img/logos/docker.svg" alt="Docker logo" loading="lazy" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('stk-logo--missing')"></div>
+            <span class="stk-name">Docker</span>
+            <span class="stk-cat-tag">Container</span>
+          </div><div class="stk-card" data-cat="purple">
+            <div class="stk-logo"><img class="stk-logo-img" src="img/logos/vmware.svg" alt="VMware logo" loading="lazy" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('stk-logo--missing')"></div>
+            <span class="stk-name">VMware</span>
+            <span class="stk-cat-tag">Virtualization</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-group">
+        <div class="stack-group-label stack-group--cyan">Automation</div>
+        <div class="stack-cards">
+          <div class="stk-card" data-cat="cyan">
+            <div class="stk-logo"><img class="stk-logo-img" src="img/logos/python.svg" alt="Python logo" loading="lazy" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('stk-logo--missing')"></div>
+            <span class="stk-name">Python</span>
+            <span class="stk-cat-tag">Scripting</span>
+          </div><div class="stk-card" data-cat="cyan">
+            <div class="stk-logo"><img class="stk-logo-img" src="img/logos/powershell.svg" alt="PowerShell logo" loading="lazy" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('stk-logo--missing')"></div>
+            <span class="stk-name">PowerShell</span>
+            <span class="stk-cat-tag">Automation</span>
+          </div><div class="stk-card" data-cat="cyan">
+            <div class="stk-logo"><img class="stk-logo-img" src="img/logos/n8n.svg" alt="n8n logo" loading="lazy" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('stk-logo--missing')"></div>
+            <span class="stk-name">n8n</span>
+            <span class="stk-cat-tag">SOAR</span>
+          </div><div class="stk-card" data-cat="cyan">
+            <div class="stk-logo"><img class="stk-logo-img" src="img/logos/github.svg" alt="Git / GitHub logo" loading="lazy" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('stk-logo--missing')"></div>
+            <span class="stk-name">Git / GitHub</span>
+            <span class="stk-cat-tag">Version Control</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-group">
+        <div class="stack-group-label stack-group--indigo">Network &amp; Analysis</div>
+        <div class="stack-cards">
+          <div class="stk-card" data-cat="indigo">
+            <div class="stk-logo"><img class="stk-logo-img" src="img/logos/nmap.svg" alt="Nmap logo" loading="lazy" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('stk-logo--missing')"></div>
+            <span class="stk-name">Nmap</span>
+            <span class="stk-cat-tag">Scanner</span>
+          </div><div class="stk-card" data-cat="indigo">
+            <div class="stk-logo"><img class="stk-logo-img" src="img/logos/wireshark.svg" alt="Wireshark logo" loading="lazy" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('stk-logo--missing')"></div>
+            <span class="stk-name">Wireshark</span>
+            <span class="stk-cat-tag">Packet Analysis</span>
+          </div><div class="stk-card" data-cat="indigo">
+            <div class="stk-logo"><img class="stk-logo-img" src="img/logos/shodan.svg" alt="Shodan logo" loading="lazy" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('stk-logo--missing')"></div>
+            <span class="stk-name">Shodan</span>
+            <span class="stk-cat-tag">OSINT</span>
+          </div><div class="stk-card" data-cat="indigo">
+            <div class="stk-logo"><img class="stk-logo-img" src="img/logos/fortinet.svg" alt="Fortinet logo" loading="lazy" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('stk-logo--missing')"></div>
+            <span class="stk-name">Fortinet</span>
+            <span class="stk-cat-tag">Firewall / UTM</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- UPSKILLS -->
+
+<section id="upskills">
+  <div class="section-label">07 // Upskills</div>
+  <p style="color:var(--muted);font-size:.85rem;margin-bottom:1.8rem">
+    <span class="fr">Ressources solides pour pratiquer, faire de la veille et enrichir l’analyse.</span>
+    <span class="en">Solid resources to practice, monitor and enrich analysis.</span>
+  </p>
+
+  <div class="scroll-row">
+
+    <a href="https://cyberdefenders.org" target="_blank" class="up-card2 rec">
+      <div class="up-banner-zone" style="--up-grad:linear-gradient(135deg,rgba(59,130,246,.15),rgba(129,140,248,.08))">
+        <img src="img/banner-cyberdefenders.png" alt="CyberDefenders" onerror="this.style.display='none'">
+        <span class="up-banner-label">CyberDefenders</span>
+      </div>
+      <div class="up-inner2">
+        <div class="up-head2">
+          
+          <div><div class="up-name2">CyberDefenders ★</div><div class="up-type2">Blue Team · SOC · DFIR</div></div>
+        </div>
+        <div class="up-desc2"><span class="fr">Labs basés sur incidents, write-ups, investigation réseau et malware.</span><span class="en">Incident-based labs, write-ups, network and malware investigations.</span></div>
+        <div class="up-foot2"><span class="up-badge ub-free">Freemium</span><span class="up-link2">→ cyberdefenders.org</span></div>
+      </div>
+    </a>
+
+    
+
+    <a href="https://www.misp-project.org/" target="_blank" class="up-card2 rec">
+      <div class="up-banner-zone" style="--up-grad:linear-gradient(135deg,rgba(129,140,248,.15),rgba(59,130,246,.08))">
+        <img src="img/banner-misp.png" alt="MISP" onerror="this.style.display='none'">
+        <span class="up-banner-label" style="color:var(--accent2)">MISP</span>
+      </div>
+      <div class="up-inner2">
+        <div class="up-head2">
+          
+          <div><div class="up-name2">MISP ★</div><div class="up-type2">CTI · IoC Sharing</div></div>
+        </div>
+        <div class="up-desc2"><span class="fr">Partage et enrichment IoC, taxonomies, feeds et workflows d’investigation.</span><span class="en">IoC sharing and enrichment with taxonomies, feeds and investigation workflows.</span></div>
+        <div class="up-foot2"><span class="up-badge ub-oss">Open Source</span><span class="up-link2">→ misp-project.org</span></div>
+      </div>
+    </a>
+
+    <a href="https://www.shodan.io/" target="_blank" class="up-card2">
+      <div class="up-banner-zone" style="--up-grad:linear-gradient(135deg,rgba(245,158,11,.15),rgba(255,100,0,.08))">
+        <img src="img/banner-shodan.png" alt="Shodan" onerror="this.style.display='none'">
+        <span class="up-banner-label" style="color:#f59e0b">Shodan</span>
+      </div>
+      <div class="up-inner2">
+        <div class="up-head2">
+          
+          <div><div class="up-name2">Shodan</div><div class="up-type2">OSINT · Exposure</div></div>
+        </div>
+        <div class="up-desc2"><span class="fr">Recherche d’actifs exposés et fingerprinting, utile pour OSINT responsable.</span><span class="en">Search exposed assets and fingerprints, useful for responsible OSINT.</span></div>
+        <div class="up-foot2"><span class="up-badge ub-free">Freemium</span><span class="up-link2">→ shodan.io</span></div>
+      </div>
+    </a>
+
+    
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">08 Contact</div>
+
+  <div class="cta-block">
+    <div class="cta-eyebrow">
+      <span class="fr">Travaillons ensemble</span>
+      <span class="en">Let's work together</span>
+    </div>
+    <h2 class="cta-heading">
+      <span class="fr">Un projet, un poste,<br>une <em>question technique</em> ?</span>
+      <span class="en">A project, a role,<br>a <em>technical question</em>?</span>
+    </h2>
+    <p class="cta-sub">
+      <span class="fr">Je réponds rapidement — et j'aime les sujets concrets&nbsp;: détection, infrastructure, automatisation SOC. N'hésitez pas.</span>
+      <span class="en">I reply fast — and I enjoy concrete topics: detection, infrastructure, SOC automation. Feel free to reach out.</span>
+    </p>
+  </div>
+
+  <!-- Disponibilité discrète inline -->
+  <div style="margin-bottom:1.6rem;">
+    <span class="avail-inline">
+      <span class="avail-dot"></span>
+      <span class="avail-txt"><span class="fr">Disponible</span><span class="en">Available</span></span>
+      <span class="avail-meta">·&nbsp;<span class="fr">Stage / Alternance</span><span class="en">Internship / Apprenticeship</span>&nbsp;·&nbsp;<span class="fr">Mobilité France</span><span class="en">France mobility</span></span>
+    </span>
+  </div>
+
+  <!-- Actions principales -->
+  <div class="contact-actions-row">
+    <a href="mailto:jean@eliesec.fr" class="clink primary">
+      <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      jean@eliesec.fr
+    </a>
+    <div class="clink-sep"></div>
+    <a href="tel:+33772340576" class="clink">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      +33 7 72 34 05 76
+    </a>
+    <a href="https://linkedin.com/in/jean-elie-koumou" target="_blank" class="clink">
+      <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://github.com/votrenom" target="_blank" class="clink">
+      <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      GitHub
+    </a>
+    <a href="JeanElieKoumouCVCyber2026.pdf" class="clink">
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span class="fr">Télécharger CV</span><span class="en">Download CV</span>
+    </a>
+  </div>
+
+  
+
+</section>
+<footer>
+  <span class="footer-left">
+    <span class="footer-copy">© 2026 Jean-Elie Koumou</span>
+    <span class="footer-sep">·</span>
+    <span class="footer-domain">jean@eliesec.fr</span>
+  </span>
+  <span class="footer-right">
+    <span class="footer-tag">Cybersecurity Portfolio</span>
+    <span class="footer-sep">·</span>
+    <span class="footer-legal">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Données personnelles traitées conformément au RGPD
+    </span>
+  </span>
+</footer>
+
+<style id="footer-pro">
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .6rem;
+  padding: 1.2rem 2.5rem;
+  border-top: 1px solid var(--border);
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: var(--mono);
+  font-size: .64rem;
+  color: var(--muted);
+}
+.footer-left, .footer-right {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+.footer-sep { opacity: .35; }
+.footer-copy { color: var(--text); font-weight: 600; }
+.footer-domain { color: var(--accent); }
+.footer-tag { letter-spacing: .08em; text-transform: uppercase; font-size: .58rem; }
+.footer-legal {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  padding: .22rem .6rem;
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 999px;
+  background: rgba(255,255,255,.02);
+  font-size: .6rem;
+  color: var(--muted);
+}
+.footer-legal svg { flex-shrink: 0; opacity: .6; }
+body[data-theme="light"] .footer-legal {
+  border-color: #d1dbe6;
+  background: #f5f7fa;
+}
+body[data-theme="light"] .footer-copy { color: #1c232d; }
+body[data-theme="light"] .footer-domain { color: #2563eb; }
+@media (max-width: 600px) {
+  footer { flex-direction: column; align-items: flex-start; padding: 1rem 1.2rem; }
+  .footer-right { font-size: .58rem; }
+}
+</style>
+
+<script>
+function toggleTheme(){document.body.setAttribute('data-theme',document.body.getAttribute('data-theme')==='light'?'':'light')}
+
+function toggleAbout(){
+  const more=document.getElementById('aboutMore'),btn=document.getElementById('toggleBtn');
+  const isOpen=more.classList.contains('open');
+  more.classList.toggle('open',!isOpen);
+  btn.classList.toggle('open',!isOpen);
+}
+
+function setLang(lang){
+  document.documentElement.setAttribute('data-lang',lang);
+  document.getElementById('btnFR').classList.toggle('active',lang==='fr');
+  document.getElementById('btnEN').classList.toggle('active',lang==='en');
+}
+
+function toggleContrast(){const on=document.body.getAttribute('data-contrast')==='high';document.body.setAttribute('data-contrast',on?'':'high');document.getElementById('btnContrast').classList.toggle('active',!on)}
+function toggleDyslexia(){const on=document.body.getAttribute('data-font')==='dyslexia';document.body.setAttribute('data-font',on?'':'dyslexia');document.getElementById('btnDyslexia').classList.toggle('active',!on)}
+function toggleMotion(){const on=document.body.getAttribute('data-motion')==='reduced';document.body.setAttribute('data-motion',on?'':'reduced');document.getElementById('btnMotion').classList.toggle('active',!on)}
+function resetA11y(){['data-contrast','data-font','data-motion'].forEach(a=>document.body.removeAttribute(a));['btnContrast','btnDyslexia','btnMotion'].forEach(id=>document.getElementById(id)?.classList.remove('active'))}
+
+const secs=document.querySelectorAll('section[id]'),navAs=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{let cur='';secs.forEach(s=>{if(window.scrollY>=s.offsetTop-130)cur=s.id});navAs.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur))});
+/* --- enhanced horizontal scrolling (drag to scroll) --- */
+document.querySelectorAll('.scroll-row').forEach(row=>{
+  let isDown=false,startX=0,scrollLeft=0;
+  row.addEventListener('pointerdown',e=>{
+    isDown=true;
+    row.setPointerCapture?.(e.pointerId);
+    startX=e.clientX;
+    scrollLeft=row.scrollLeft;
+  });
+  row.addEventListener('pointermove',e=>{
+    if(!isDown) return;
+    const dx=e.clientX-startX;
+    row.scrollLeft = scrollLeft - dx;
+  });
+  ['pointerup','pointercancel','pointerleave'].forEach(ev=>row.addEventListener(ev,()=>{isDown=false;}));
+});
+
+/* --- copy to clipboard (contact) --- */
+const toast=document.getElementById('toast');
+document.querySelectorAll('[data-copy]').forEach(btn=>{
+  btn.addEventListener('click',async ()=>{
+    const val=btn.getAttribute('data-copy');
+    try{
+      await navigator.clipboard.writeText(val);
+      if(toast){
+        toast.classList.add('show');
+        setTimeout(()=>toast.classList.remove('show'),1100);
+      }
+    }catch(e){}
+  });
+});
+
+</script>
+<script>
+
+/* ── Carousel nav: buttons + wheel horizontal ── */
+(function(){
+  const mkBtn = (dir)=> {
+    const b = document.createElement('button');
+    b.className = 'scroll-btn ' + dir;
+    b.type = 'button';
+    b.setAttribute('aria-label', dir === 'left' ? 'Scroll left' : 'Scroll right');
+    b.innerHTML = dir === 'left'
+      ? '<svg viewBox="0 0 24 24" fill="none"><path d="M14.5 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+      : '<svg viewBox="0 0 24 24" fill="none"><path d="M9.5 19l7-7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    return b;
+  };
+
+  const enhance = (row)=>{
+    if(row.closest('.scroll-wrap')) return;
+    const wrap = document.createElement('div');
+    wrap.className = 'scroll-wrap';
+    row.parentNode.insertBefore(wrap, row);
+    wrap.appendChild(row);
+
+    const left = mkBtn('left');
+    const right = mkBtn('right');
+    wrap.appendChild(left);
+    wrap.appendChild(right);
+
+    const step = ()=> Math.max(260, Math.floor(row.clientWidth * 0.75));
+    left.addEventListener('click', ()=> row.scrollBy({left: -step(), behavior:'smooth'}));
+    right.addEventListener('click', ()=> row.scrollBy({left: step(), behavior:'smooth'}));
+
+    // wheel -> horizontal
+    row.addEventListener('wheel', (e)=>{
+      if(Math.abs(e.deltaY) > Math.abs(e.deltaX)){
+        e.preventDefault();
+        row.scrollLeft += e.deltaY;
+      }
+    }, {passive:false});
+  };
+
+  document.querySelectorAll('.scroll-row').forEach(enhance);
+})();
+
+</script>
+
+<script>
+document.querySelectorAll('.scroll-container').forEach(container => {
+    container.addEventListener('wheel', function(e) {
+        if (container.scrollWidth > container.clientWidth) {
+            e.preventDefault();
+            container.scrollLeft += e.deltaY;
+        }
+    }, { passive: false });
+});
+
+window.addEventListener('scroll',function(){
+  var btn=document.getElementById('scrollTopBtn');
+  if(!btn)return;
+  if(window.scrollY>250){btn.classList.add('visible');}else{btn.classList.remove('visible');}
+});
+</script>
+
+
+<button class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button></body>
+</html>
