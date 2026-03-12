@@ -6,7 +6,7 @@
 ### Blue Team · Infrastructure Security · SOC
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-eliesec.fr-0d1117?style=flat-square&logo=firefox&logoColor=white&labelColor=161b22&color=4f8ef7)](https://eliesec.fr)
-[![Email](https://img.shields.io/badge/jean@eliesec.fr-161b22?style=flat-square&logo=gmail&logoColor=white&labelColor=161b22&color=4f8ef7)](mailto:jean@eliesec.fr)
+[![Email](https://img.shields.io/badge/jeank@eliesec.fr-161b22?style=flat-square&logo=gmail&logoColor=white&labelColor=161b22&color=4f8ef7)](mailto:jeank@eliesec.fr)
 [![LinkedIn](https://img.shields.io/badge/jean--koumou-161b22?style=flat-square&logo=linkedin&logoColor=white&labelColor=161b22&color=4f8ef7)](https://linkedin.com/in/jean-koumou)
 [![Status](https://img.shields.io/badge/Open_to-Stage_%2F_Alternance-161b22?style=flat-square&logo=circle&logoColor=4f8ef7&labelColor=161b22&color=4f8ef7)](https://eliesec.fr)
 
