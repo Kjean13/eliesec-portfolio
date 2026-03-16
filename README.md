@@ -1,7 +1,7 @@
 
 <div align="center">
 
-# Jean-Elie Koumou
+# Jean Koumou
 
 ### Blue Team · Infrastructure Security · SOC
 
