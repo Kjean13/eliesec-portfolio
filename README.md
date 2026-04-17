@@ -24,7 +24,7 @@ Infrastructure and cybersecurity student focused on system hardening, threat det
 
 ## Projects
 
-### Active Directory Forensic Toolkit (ADFT) — 2026
+### Active Directory Forensic Toolkit (ADFT) 2026
 Open-source Python tool for Active Directory forensic investigation. Ingests EVTX/JSON logs, normalizes events, maps to MITRE ATT&CK, performs multi-event correlation, and generates HTML/JSON/CSV reports.
 
 [![GitHub](https://img.shields.io/badge/GitHub-ADFT-161b22?style=flat-square&logo=github&logoColor=white)](https://github.com/Kjean13/ADFT)
@@ -35,7 +35,7 @@ Open-source Python tool for Active Directory forensic investigation. Ingests EVT
 
 ---
 
-### SIEM Wazuh Deployment on AD Lab — GOAD · 2026
+### SIEM Wazuh Deployment on AD Lab (GOAD) · 2026
 Deployed Wazuh SIEM on a vulnerable Active Directory lab (GOAD). Configured Windows/Sysmon log collection, custom detection rules, dashboards, and alerting. Validated detection coverage through controlled offensive scenarios.
 
 [![GitHub](https://img.shields.io/badge/GitHub-wazuh--goad-161b22?style=flat-square&logo=github&logoColor=white)](https://github.com/Kjean13/wazuh-goad)
@@ -46,7 +46,7 @@ Deployed Wazuh SIEM on a vulnerable Active Directory lab (GOAD). Configured Wind
 
 ---
 
-### Delta Robot — Vision & Secure Communications · 2025
+### Delta Robot : Vision & Secure Communications · 2025
 Server-driven robotic architecture with OpenCV-based vision, calibration, client/server secure exchanges, and supervision of control station-to-robot communications.
 
 [![GitHub](https://img.shields.io/badge/GitHub-delta--robot-161b22?style=flat-square&logo=github&logoColor=white)](https://github.com/Kjean13/delta-robot)
